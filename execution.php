@@ -47,7 +47,7 @@ if(isset($_POST['valide_reserve']))
         $pension_prix = $execution->food();
     }
 
-
+////////// set pension data
 
     echo "pension ===>" . $pension . "<br/>";
     if(isset($_POST["pension_demi_type"])){
@@ -56,6 +56,56 @@ if(isset($_POST['valide_reserve']))
 
     echo "pension prix : ===>" .    $pension_prix . "$<br/>";
 
+
+
+    /////////////// get data children
+
+        /// data bebe
+    $bebe= $_POST["bebe"];
+    $bebe_choix = "";
+    $bebe_prix = 0;
+    if(isset($_POST["bebe_choix"])){
+        $bebe_choix = $_POST["bebe_choix"];
+    }
+    for($i = 0 ; $i < $bebe ; $i++){
+        $bebe_tarif = new bebe();
+        $bebe_prix += $bebe_tarif->bebe_tarif($bebe_choix);
+    }
+
+
+
+    echo  $bebe . " bebe  with tarif  ===> ".$bebe_prix . "$";
+
+
+
+
+
+
+
+
+
+
+
+
+    // $enfant = $_POST["enfant"];
+    // $adulte = $_POST["adulte"];
+    // echo "he has " .$enfant. " enfant <br/>";
+    // echo "he has " .$adulte. " adulte <br/>";
+
+// if(isset($_POST["bebe"])){
+//     $bebe= $_POST["bebe"];
+//     echo "he has " .$bebe. " bebe";
+//     echo "<br/>";
+// }
+// if(isset($_POST["enfant"]) != 0){
+//     $enfant = $_POST["enfant"];
+//     echo $enfant;
+//     echo "<br/>";
+// }
+// if(isset($_POST["adulte"])){
+//     $adulte = $_POST["adulte"];
+//     echo $adulte;
+// }
 
 
 }

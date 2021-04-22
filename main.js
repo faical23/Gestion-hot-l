@@ -65,7 +65,7 @@
 
         ///////////////  enfant choix chambre
         var choix_bebe = ["with lit", "without lit"]
-        var choix_adulte = ["add chambre simple", "wadd lit"]
+        var choix_adulte = ["add chambre simple", "add lit"]
         $('#bebe').on('change', function() {
             var bebe = $(this).val();
             if (bebe >= 1) {

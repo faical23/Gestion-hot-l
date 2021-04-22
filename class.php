@@ -207,27 +207,33 @@ class enfant{
     {
         $this->age = $age;
     }
-
-
 }
 
 class bebe extends enfant{
-    public function __construct($age)
+    public function __construct()
     {
-        $this->age = $age;
+        // $this->age = $age;
     }
 
     public function bebe_tarif($type_lit){
     $bebe_prix = 0;
-        if($type_lit == "lit enfant")
+        if($type_lit == "Add lit")
         {
-         $chambe_simple = new simple("chambre simple" , "interieur" , 60);
+         $chambe_simple = new simple("chambre simple" , "Vue interieur");
          $bebe_prix = $chambe_simple->tarif_chambre() * 0.25;
-
+         return $bebe_prix;
         }
-        return $bebe_prix;
+        else if($type_lit == "Without lit"){
+            return $bebe_prix;
+        }
     }
 }
+
+
+
+
+
+
 class enfants extends enfant{
     public function __construct($age)
     {
