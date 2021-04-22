@@ -74,13 +74,36 @@ if(isset($_POST['valide_reserve']))
 
 
 
-    echo  $bebe . " bebe  with tarif  ===> ".$bebe_prix . "$";
+    echo  $bebe . " bebe  with choix ". $bebe_choix  ." and tarif is ===> ".$bebe_prix . "$<br/>";
+
+
+    /// data enfants
+    $enfant = $_POST["enfant"];
+    $enfant_prix = 0;
+    for($i = 0 ; $i < $enfant ; $i++){
+        $enfant_tarif = new enfants();
+        $enfant_prix += $enfant_tarif->enfants_tarif();
+    }
+
+
+    echo  $enfant . " enfants  with tarif  ===> ".$enfant_prix . "$<br/>";
 
 
 
+        /// data adulte
+        $adulte = $_POST["adulte"];
+        $adulte_choix = "";
+        $adulte_prix = 0;
+        if(isset($_POST["bebe_choix"])){
+            $adulte_choix = $_POST["adulte_choix"];
+        }
+        for($i = 0 ; $i < $adulte ; $i++){
+            $adulte_tarif = new adulte();
+            $adulte_prix += $adulte_tarif->adulte_tarif($adulte_choix);
+        }
 
-
-
+        echo  $adulte . " adulte  with tarif  ===> ".$adulte_prix . "$<br/>";
+        echo $adulte_choix;
 
 
 
