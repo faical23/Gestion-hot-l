@@ -11,32 +11,42 @@ if(isset($_POST['valide_reserve']))
     
 
     /////////////// get chambre data;
+    ////// dont forgot to loop adn get a number choix from javascript
+    $number_choix = $_POST["number_chambre"];
+    echo $number_choix;
 
-    $chambre = $_POST["chambre"];
-    $type_chambre = $_POST["type_chambre"];
-    $type_chambre_double  = "NULL";
-    $execution = new $chambre($chambre,$type_chambre);
+// for($i = 0 ; $i<10 ; $i++){
+//     echo "<br/>";
 
-    if(isset($_POST["type_chambre_double"])){
-        $type_chambre_double =  $_POST["type_chambre_double"];
-    }
-    if($chambre == "chambre_Double"){
-        $chambre_prix = $execution->tarif_chambre($type_chambre_double);
-    }
-    else{
-        $chambre_prix = $execution->tarif_chambre();
-    }
+// }
+
+//     $chambre = $_POST["chambre"];
+//     $type_chambre = $_POST["type_chambre"];
+//     $type_chambre_double  = "NULL";
+//     $execution = new $chambre($chambre,$type_chambre);
+
+//     if(isset($_POST["type_chambre_double"])){
+//         $type_chambre_double =  $_POST["type_chambre_double"];
+//     }
+//     if($chambre == "chambre_Double"){
+//         $chambre_prix = $execution->tarif_chambre($type_chambre_double);
+//     }
+//     else{
+//         $chambre_prix = $execution->tarif_chambre();
+//     }
 
 
 
-    ///// set  chambre data
+//     ///// set  chambre data
 
-    echo "he choose ===>" . $chambre . "<br/>";
-    echo "type  ===>" .  $type_chambre . "<br/>";
-    if(isset($_POST["type_chambre_double"])){
-        echo "type chambre double ===>" .  $type_chambre_double . "<br/>";
-    }
-    echo "prix  ===>" .$chambre_prix . "$<br/>";
+//     echo "he choose ===>" . $chambre . "<br/>";
+//     echo "type  ===>" .  $type_chambre . "<br/>";
+//     if(isset($_POST["type_chambre_double"])){
+//         echo "type chambre double ===>" .  $type_chambre_double . "<br/>";
+//     }
+//     echo "prix  ===>" .$chambre_prix . "$<br/>";
+
+
 
 
     //// get pension data
@@ -122,8 +132,8 @@ if(isset($_POST['valide_reserve']))
 
 
 
-
-        $total = ($chambre_prix + $pension_prix + $bebe_prix + $enfant_prix + $adulte_prix ) * $days;
+    //    remove from total // $chambre_prix + 
+        $total = ($pension_prix + $bebe_prix + $enfant_prix + $adulte_prix ) * $days;
 
         echo "total : ".$total."$";
 
@@ -138,11 +148,12 @@ if(isset($_POST['valide_reserve']))
 
 
 
-        $chambre = str_replace("_", "  ", $chambre);
+        // $chambre = str_replace("_", "  ", $chambre);
 
         $duree = 7;
 
-        $commande = ["id commande" => 'APD023',"choix" => $chambre,"type choix" => $type_chambre ,"choix items" => $type_chambre_double ,"pension" => $pension
+    //    remove from arrays // "id commande" => 'APD023',"choix" => $chambre,"type choix" => $type_chambre ,"choix items" => $type_chambre_double ,
+        $commande = ["pension" => $pension
         ,"type penstion" => $pension_demi_type,"bebe" => $bebe, "bebe choix" => $bebe_choix , "enfants" => $enfant , "adulte" => $adulte ,
         "adulte choix" => $adulte_choix ,"start date " => $start_date,"end date" => $end_date,"duree" => $days,"total" => $total ];
 
@@ -158,7 +169,7 @@ if(isset($_POST['valide_reserve']))
 
         $_SESSION["valide_book"] = "valide_book";
         $_SESSION["total"] = $total;
-        header('Location:../vue/index.php');
+        // header('Location:../vue/index.php');
 
 
 

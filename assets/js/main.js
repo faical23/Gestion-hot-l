@@ -1,11 +1,5 @@
 ///////////////  chambre choix script
-var type_chambre = {
-    'chambre_Simple': ['chambre Simple', 30],
-    'chambre_Double': ['chambre Double', 70],
-    'Appartement': ['Appartement', 130],
-    'bungalow': ['bungalow', 190],
 
-};
 var type_chambre = {
     'chambre_Simple': ['Vue interieur', 'Vue exterieur'],
     'chambre_Double': ['lit double', '2 lit simple'],
@@ -55,12 +49,14 @@ function choix_chambre() {
 }
 
 choix_chambre();
-
+new_choix = 1;
+var number_chambre = document.querySelector("#number_chambre");
+console.log(number_chambre);
 $("#add_chambre").on('click', function() {
     $("#all_choix").append(` 
            <div id="choix">
                 <label style=" margin:20px 0px; display: block;">Selcet Your Chambre</label>
-                  <select id="options" name="chambre">
+                  <select id="options" name="chambre_${new_choix}">
                       <option value="Select an option " disabled selected>Select an option</option>
                       <option value="chambre_Simple">Chambre simple</option>
                       <option value="chambre_Double">Chambre Double</option>
@@ -69,31 +65,32 @@ $("#add_chambre").on('click', function() {
 
                   </select>
 
-                  <select id="choix_option" name="type_chambre">
+                  <select id="choix_option" name="type_chambre_${new_choix}">
                       <option value="Select an option 1" disabled  selected>Type Chambre</option>
                     </select>
 
-                    <select id="choix_chambre_double" style="display: none;" name="type_chambre_double">
+                    <select id="choix_chambre_double" style="display: none;" name="type_chambre_double_${new_choix}">
                       <option value="Select an option" disabled  selected>Please select an option</option>
                     </select>
           </div>`)
     choix_chambre();
-
+    new_choix++;
+    number_chambre.value = new_choix;
+    console.log(number_chambre.value)
 })
 
 $("#moins_chambre").on('click', function() {
     var all_choix = document.querySelectorAll('#choix').length
     if (all_choix > 1) {
         $("#all_choix").children().last().remove();
+        new_choix--;
+        number_chambre.value = new_choix;
+        console.log(number_chambre.value)
+
     }
 })
 
 
-$('#valide_chambre').on('click', () => {
-
-
-
-})
 
 
 
