@@ -1,26 +1,32 @@
 <?php
+session_start();
 
 include "class.php";
 
 if(isset($_POST['valide_reserve']))
 {
 
+    if(isset($_POST['verified'])){
+
+    
+
     /////////////// get chambre data;
 
     $chambre = $_POST["chambre"];
     $type_chambre = $_POST["type_chambre"];
-    $type_chambre_double  = "";
+    $type_chambre_double  = "NULL";
     $execution = new $chambre($chambre,$type_chambre);
 
     if(isset($_POST["type_chambre_double"])){
         $type_chambre_double =  $_POST["type_chambre_double"];
     }
-    if($chambre == "Double"){
+    if($chambre == "chambre_Double"){
         $chambre_prix = $execution->tarif_chambre($type_chambre_double);
     }
     else{
         $chambre_prix = $execution->tarif_chambre();
     }
+
 
 
     ///// set  chambre data
@@ -36,7 +42,7 @@ if(isset($_POST['valide_reserve']))
     //// get pension data
 
     $pension = $_POST["pension"];
-    $pension_demi_type = "";
+    $pension_demi_type = "NULL";
     $execution = new $pension();
 
     if(isset($_POST["pension_demi_type"])){
@@ -62,7 +68,7 @@ if(isset($_POST['valide_reserve']))
 
         /// data bebe
     $bebe= $_POST["bebe"];
-    $bebe_choix = "";
+    $bebe_choix = "NULL";
     $bebe_prix = 0;
     if(isset($_POST["bebe_choix"])){
         $bebe_choix = $_POST["bebe_choix"];
@@ -92,9 +98,9 @@ if(isset($_POST['valide_reserve']))
 
         /// data adulte
         $adulte = $_POST["adulte"];
-        $adulte_choix = "";
+        $adulte_choix = "NULL";
         $adulte_prix = 0;
-        if(isset($_POST["bebe_choix"])){
+        if(isset($_POST["adulte_choix"])){
             $adulte_choix = $_POST["adulte_choix"];
         }
         for($i = 0 ; $i < $adulte ; $i++){
@@ -103,34 +109,61 @@ if(isset($_POST['valide_reserve']))
         }
 
         echo  $adulte . " adulte  with tarif  ===> ".$adulte_prix . "$<br/>";
-        echo $adulte_choix;
+
+        
+
+        ///////////// get date
+        $start_date = $_POST["start_date"];
+        $end_date = $_POST["end_date"];
+        $diff=date_diff(date_create($start_date),date_create($end_date));
+        $days = $diff->format("%a");
+        echo "duree ==> " .$days;
+        echo "<br/>";
+
+
+
+
+        $total = ($chambre_prix + $pension_prix + $bebe_prix + $enfant_prix + $adulte_prix ) * $days;
+
+        echo "total : ".$total."$";
+
+
+
+        for($i = 0 ; $i < 10 ; $i++){
+            echo "<br/>";
+        }
 
 
 
 
 
 
-    // $enfant = $_POST["enfant"];
-    // $adulte = $_POST["adulte"];
-    // echo "he has " .$enfant. " enfant <br/>";
-    // echo "he has " .$adulte. " adulte <br/>";
+        $chambre = str_replace("_", "  ", $chambre);
 
-// if(isset($_POST["bebe"])){
-//     $bebe= $_POST["bebe"];
-//     echo "he has " .$bebe. " bebe";
-//     echo "<br/>";
-// }
-// if(isset($_POST["enfant"]) != 0){
-//     $enfant = $_POST["enfant"];
-//     echo $enfant;
-//     echo "<br/>";
-// }
-// if(isset($_POST["adulte"])){
-//     $adulte = $_POST["adulte"];
-//     echo $adulte;
-// }
+        $duree = 7;
+
+        $commande = ["id commande" => 'APD023',"choix" => $chambre,"type choix" => $type_chambre ,"choix items" => $type_chambre_double ,"pension" => $pension
+        ,"type penstion" => $pension_demi_type,"bebe" => $bebe, "bebe choix" => $bebe_choix , "enfants" => $enfant , "adulte" => $adulte ,
+        "adulte choix" => $adulte_choix ,"start date " => $start_date,"end date" => $end_date,"duree" => $days,"total" => $total ];
 
 
+
+
+
+        foreach($commande as $key => $value) {
+            echo $key . " => " . $value;
+            echo "<br/>";
+        }        
+
+
+        $_SESSION["valide_book"] = "valide_book";
+        $_SESSION["total"] = $total;
+        header('Location:../vue/index.php');
+
+
+
+
+    }
 }
 
 ?>

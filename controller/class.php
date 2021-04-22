@@ -16,7 +16,7 @@ class chambre{
     }
 }
 
-class Simple extends chambre{
+class chambre_Simple extends chambre{
     
     public function __construct($name,$type,$prix = 30)
     {   
@@ -38,6 +38,34 @@ class Simple extends chambre{
     }
 
 }
+class chambre_Double extends chambre{
+    // public $type_lit;
+    public function __construct($name,$type,$prix = 70)
+    {   
+           $this->name = $name;
+           $this->type = $type; 
+           $this->prix = $prix; 
+        //    $type_lit = $type_lit;
+    }
+    public function tarif_chambre($type_lit){
+        if($this->type == "lit double")
+        {
+            if($type_lit =="Vue interieur")
+            {
+                return $this->prix;
+            }
+            else if($type_lit =="Vue exterieur"){
+                $this->prix += $this->prix * 0.2;
+                return $this->prix;
+            }
+        }
+        else{
+            return $this->prix;
+        }
+    }
+
+}
+
 class bungalow extends chambre{
     
     public function __construct($name,$type,$prix = 90)
@@ -82,33 +110,7 @@ class appartement extends chambre{
     }
 
 }
-class double extends chambre{
-    // public $type_lit;
-    public function __construct($name,$type,$prix = 70)
-    {   
-           $this->name = $name;
-           $this->type = $type; 
-           $this->prix = $prix; 
-        //    $type_lit = $type_lit;
-    }
-    public function tarif_chambre($type_lit){
-        if($this->type == "lit double")
-        {
-            if($type_lit =="Vue interieur")
-            {
-                return $this->prix;
-            }
-            else if($type_lit =="Vue exterieur"){
-                $this->prix += $this->prix * 0.2;
-                return $this->prix;
-            }
-        }
-        else{
-            return $this->prix;
-        }
-    }
 
-}
 
 
 
@@ -219,7 +221,7 @@ class bebe extends enfant{
     $bebe_prix = 0;
         if($type_lit == "Add lit")
         {
-         $chambe_simple = new simple("chambre simple" , "Vue interieur");
+         $chambe_simple = new Chambre_Simple("chambre simple" , "Vue interieur");
          $bebe_prix = $chambe_simple->tarif_chambre() * 0.25;
          return $bebe_prix;
         }
@@ -229,11 +231,6 @@ class bebe extends enfant{
     }
 }
 
-
-
-
-
-
 class enfants extends enfant{
     public function __construct()
     {
@@ -241,17 +238,11 @@ class enfants extends enfant{
     }
 
     public function enfants_tarif(){
-         $chambe_simple = new simple("chambre simple" , "Vue interieur");
+         $chambe_simple = new Chambre_Simple("chambre simple" , "Vue interieur");
          $enfants_prix = $chambe_simple->tarif_chambre() * 0.50;
         return $enfants_prix;
     }
 }
-
-
-
-
-
-
 
 
 class adulte extends enfant{
@@ -261,7 +252,7 @@ class adulte extends enfant{
     }
 
     public function adulte_tarif($type_chambre){
-        $chambe_simple = new simple("chambre simple" , "Vue interieur");
+        $chambe_simple = new Chambre_Simple("chambre simple" , "Vue interieur");
         $adulte_prix = 0;
         if($type_chambre == "Add Chambre")
         {
