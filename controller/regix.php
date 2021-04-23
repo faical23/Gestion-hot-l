@@ -1,6 +1,6 @@
 <?php
 
-    include "../modele/db.php";
+    include "../model/db.php";
     interface RG{
 
         const RG_NAME = '/^[a-zA-Z0-9]\w{3,}+$/';
@@ -28,7 +28,7 @@
                         }
                       
                     }
-                    else if($key == "Email")
+                    else if($key == "Email" || $key == "email")
                     {
                         if(!preg_match(self::RG_EMAIL, $value))
                         {
@@ -49,7 +49,7 @@
                             $valide = false;
                         }
                     }  
-                  else if($key == "subject" || $key == "message"|| $key == "reclamation")
+                  else if($key == "subject" || $key == "message"|| $key == "reclamation" || $key == "sujet")
                     {
                         if(!preg_match(self::RG_TEXT , $value))
                         {
@@ -63,6 +63,15 @@
             }
             return $valide;
         }
+    }
+    class INSER_DATA implements RG{
+        public function INFORMATIONS($table,$arr){
+            $TO_INSERT = new CRUD($table);
+            $TO_INSERT->insert($arr);
+
+            /// u should change this path 
+            // header('Location:../vue/index.php');
+        }  
     }
 
 ?>

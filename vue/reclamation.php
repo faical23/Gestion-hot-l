@@ -1,19 +1,17 @@
 <?php
-?>
 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>reclamation</title>
 </head>
 <body>
-
-<div class="zone_form bg-grey p-10 mb-10  rounded  shadow  border-blue-800 bg-white">
-        <h2 class="text-2xl  font-bold mb-10 text-purple-800">CONTACT US</h2>
-        <form action="../controller/cantact_logic.php" method="POST">
+<form action="../controller/logic_reclamation.php" method="POST">
             <div class="mb-3">
                 <label class="block mb-2 font-bold text-gray-800" for="Fname">NAME</label>
                 <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Name" type="text">
@@ -27,7 +25,7 @@
                 <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Subject" type="text">
             </div> 
             <div class="mb-3">
-                <label class="block mb-2 font-bold text-gray-800" for="Fname">MESSAGE</label>
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">Reclamation</label>
                 <textarea class="w-full  h-50 border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Messsage" type="text"></textarea>
                 <!-- <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Fname" type="text"> -->
             </div> 
@@ -35,6 +33,7 @@
             
         </form>
 
-    </div>
+
+    
 </body>
 </html>
