@@ -18,7 +18,7 @@ class DB{
     }
 }
 
-$exec = new DB("reservation hotel")
+// $exec = new DB("reservation hotel")
 
 
 ?>

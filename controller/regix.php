@@ -35,14 +35,14 @@
                             $valide = false;
                         }
                     }  
-                    else if($key == "password")
+                    else if($key == "Password")
                     {
                         if(!preg_match(self::RG_PASS , $value))
                         {
                             $valide = false;
                         }
                     }   
-                    else if($key == "number_phone")
+                    else if($key == "PhoneNumber")
                     {
                         if(!preg_match(self::RG_PHONE , $value))
                         {

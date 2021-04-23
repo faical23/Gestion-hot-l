@@ -1,12 +1,12 @@
 <?php
-include "../modele/connect.php";
+include "../model/connect.php";
 
     class CRUD extends DB{
 
     private $table;
 
     public function __construct($table){
-        parent::__construct("login");
+        parent::__construct("reservation hotel");
         $this->table = $table;
     }
 

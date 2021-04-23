@@ -31,7 +31,7 @@ if(isset( $_SESSION["valide_book"]))
 <!-- <h1 id="number_chambre" name="number_chambre">1</h1> -->
     <div id="choix">
           <label style=" margin:20px 0px; display: block;">Selcet Your Chambre</label>
-            <select id="options" name="chambre_1">
+            <select id="options" name="chambre_0">
                 <option value="Select an option " disabled selected>Select an option</option>
                 <option value="chambre_Simple">Chambre simple</option>
                 <option value="chambre_Double">Chambre Double</option>
@@ -40,11 +40,11 @@ if(isset( $_SESSION["valide_book"]))
 
             </select>
 
-            <select id="choix_option" name="type_chambre_1">
+            <select id="choix_option" name="type_chambre_0">
                 <option value="Select an option 1" disabled  selected>Type Chambre</option>
               </select>
 
-              <select id="choix_chambre_double" style="display: none;" name="type_chambre_double_1">
+              <select id="choix_chambre_double" style="display: none;" name="type_chambre_double_0">
                 <option value="Select an option" disabled  selected>Please select an option</option>
               </select>
     </div> 

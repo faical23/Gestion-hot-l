@@ -1,14 +1,12 @@
 <?php
 
-include "../model/db.php";
-
 $chambreSimplePrix = 0;
 $chambreDoubleePrix = 0;
 $AppartementPrix = 0;
 $BangloawPrix = 0;
 
 
-$execution = new CRUD("chambre");
+$execution = new CRUD("chambre_prix");
 
 $GetchambreSimple = ["name" => "chambre simple"];
 $GetchambreDouble = ["name" => "chambre double"];
@@ -155,132 +153,6 @@ class appartement extends chambre{
     }
 
 }
-
-
-
-
-
-////////////// class pension
-
-class penstion{
-
-    // public $type;
-    public $prix ;
-    
-    public function __construct($prix)
-    {
-        // $this->type = $type;
-        $this->prix = $prix;
-    }
-}
-
-class Complete extends penstion{
-    public function __construct($prix = 80)
-    {
-        $this->prix = $prix;
-    }
-    function food(){
-        return $this->prix;
-    }
-}
-class Sans extends penstion{
-    public function __construct($prix = 0)
-    {
-        // $this->type = $type;
-        $this->prix = $prix;
-    }
-    function food(){
-        return $this->prix * 0;
-    }
-}
-class Demi extends penstion{
-    public $type_demi;
-    public function __construct($prix = 60)
-    {
-        $this->prix = $prix;
-    }
-    function food($demi){
-        if($demi == "Petit dej/dej")
-        {
-            return $this->prix;
-        }
-        else if($demi == "Petit dej/din"){
-            return $this->prix * 0.7;
-        }
-    }
-}
-
-
-
-
-
-class enfant{
-    public $age;
-    public function __construct($age)
-    {
-        $this->age = $age;
-    }
-}
-
-class bebe extends enfant{
-    public function __construct()
-    {
-        // $this->age = $age;
-    }
-
-    public function bebe_tarif($type_lit){
-    $bebe_prix = 0;
-        if($type_lit == "Add lit")
-        {
-         $chambe_simple = new Chambre_Simple("chambre simple" , "Vue interieur");
-         $bebe_prix = $chambe_simple->tarif_chambre() * 0.25;
-         return $bebe_prix;
-        }
-        else if($type_lit == "Without lit"){
-            return $bebe_prix;
-        }
-    }
-}
-
-class enfants extends enfant{
-    public function __construct()
-    {
-        // $this->age = $age;
-    }
-
-    public function enfants_tarif(){
-         $chambe_simple = new Chambre_Simple("chambre simple" , "Vue interieur");
-         $enfants_prix = $chambe_simple->tarif_chambre() * 0.50;
-        return $enfants_prix;
-    }
-}
-
-
-class adulte extends enfant{
-    public function __construct()
-    {
-        // $this->age = $age;
-    }
-
-    public function adulte_tarif($type_chambre){
-        $chambe_simple = new Chambre_Simple("chambre simple" , "Vue interieur");
-        $adulte_prix = 0;
-        if($type_chambre == "Add Chambre")
-        {
-            $adulte_prix = $chambe_simple->tarif_chambre();
-           return $adulte_prix;
-        }
-        else if($type_chambre == "Add Lit")
-        {
-            $adulte_prix = $chambe_simple->tarif_chambre() * 0.7;
-            return $adulte_prix;
-        }
-
-    }
-}
-
-
-
 
 
 
