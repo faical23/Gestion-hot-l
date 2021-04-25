@@ -90,7 +90,6 @@
 
             </div>
             <div class="login_with mb-3  flex items-center  rounded  ">
-                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
                 <svg enable-background="new 0 0 24 24"  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style=" width:60px ; padding:8px"><path d="m15.997 3.985h2.191v-3.816c-.378-.052-1.678-.169-3.192-.169-6.932 0-5.046 7.85-5.322 9h-3.487v4.266h3.486v10.734h4.274v-10.733h3.345l.531-4.266h-3.877c.188-2.824-.761-5.016 2.051-5.016z" fill="#3b5999"/></svg>
                 <label class="text-purple-800 font-bold  " style="padding-left:25%;"><a href="#">Login with Facebook</a></label>
         </div>

@@ -34,9 +34,8 @@ Demi::$Pension_Demi_Prix = $PensionDemiPrix;
 
 
 abstract class pension {
-
     abstract public function food() ;
-  }
+}
 
   class Complete extends pension {
     public static $Pension_Complete_Prix;
@@ -70,73 +69,6 @@ abstract class pension {
     }
   }
 
-
-    // $complete = new Complete();
-    // echo $complete->food();
-    // echo "<br/>";
-    // $complete = new Sans();
-    // echo $complete->food();
-    // echo "<br/>";
-    // $complete = new Demi("Petit dej/din");
-    // echo $complete->food();
-    // echo "<br/>";
-
-
-
-// abstract class penstion{
-
-//     // public $prix ;
-    
-//     // public function __construct($prix)
-//     // {
-//     //     $this->prix = $prix;
-//     // }
-//     abstrcat function food :  () ;
-// }
-
-
-
-
-// class Complete extends penstion{
-//     public static $Pension_Complete_Prix;
-
-//     // public function __construct($prix = 80)
-//     // {
-//     //     $this->prix = $prix;
-//     // }
-//     function food(){
-//         return $this->prix;
-//     }
-// }
-// class Sans extends penstion{
-//     public static $Pension_Demi_Prix;
-
-//     // public function __construct($prix = 0)
-//     // {
-//     //     // $this->type = $type;
-//     //     $this->prix = $prix;
-//     // }
-//     function food(){
-//         return $this->prix * 0;
-//     }
-// }
-// class Demi extends penstion{
-//     public static $Pension_Sans_Prix;
-//     public $type_demi;
-//     // public function __construct($prix = 60)
-//     // {
-//     //     $this->prix = $prix;
-//     // }
-//     function food($demi){
-//         if($demi == "Petit dej/dej")
-//         {
-//             return $this->prix;
-//         }
-//         else if($demi == "Petit dej/din"){
-//             return $this->prix * 0.7;
-//         }
-//     }
-// }
 
 
 ?>

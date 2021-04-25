@@ -16,7 +16,7 @@ if(isset($_POST['valide_reserve']))
 
     $Lname = "bahsis";
     $Fname ="mbarek";
-    $id_commnade = "v8";
+    $id_commnade = "V.9";
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////// chambre
 
@@ -104,8 +104,8 @@ echo "total prix chambre ==> " . $chambre_prix;
         $bebe_choix = $_POST["bebe_choix"];
     }
     for($i = 0 ; $i < $bebe ; $i++){
-        $bebe_tarif = new bebe();
-        $bebe_prix += $bebe_tarif->bebe_tarif($bebe_choix);
+        $bebe_tarif = new bebe($bebe_choix);
+        $bebe_prix += $bebe_tarif->tarif();
     }
 
 
@@ -119,7 +119,7 @@ echo "total prix chambre ==> " . $chambre_prix;
     $enfant_prix = 0;
     for($i = 0 ; $i < $enfant ; $i++){
         $enfant_tarif = new enfants();
-        $enfant_prix += $enfant_tarif->enfants_tarif();
+        $enfant_prix += $enfant_tarif->tarif();
     }
 
     echo $enfant_total = $enfant; //// insert enfant db 
@@ -133,8 +133,8 @@ echo "total prix chambre ==> " . $chambre_prix;
             $adulte_choix = $_POST["adulte_choix"];
         }
         for($i = 0 ; $i < $adulte ; $i++){
-            $adulte_tarif = new adulte();
-            $adulte_prix += $adulte_tarif->adulte_tarif($adulte_choix);
+            $adulte_tarif = new adulte($adulte_choix);
+            $adulte_prix += $adulte_tarif->tarif();
         }
 
         $adule_total = $adulte . " ==> " . $adulte_choix;

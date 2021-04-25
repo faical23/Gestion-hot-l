@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-if(isset( $_SESSION["valide_book"]))
-{
-  echo "congratulations ur book is valide <br/>";
-  echo "total is : " . $_SESSION["total"] . "$";
-}
 
 ?>
 
@@ -17,12 +12,17 @@ if(isset( $_SESSION["valide_book"]))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="../assets/c"> -->
+    <link rel="stylesheet" href="../assets/css/style.css">
     <title>Reservaion</title>
 </head>
 
-<body style="display: flex; justify-content: space-evenly;">
-    <form action="../controller/execution.php" method="POST">
+<body >
+
+  <section class="navbar_hero">
+
+  
+  </section>
+    <form action="../controller/logic_reserve.php" method="POST">
 
 
         <!-- chambre choix-->

@@ -40,7 +40,6 @@ chambre_Double::$chambre_Double_prix = $chambreDoubleePrix;
 appartement::$appartement_prix = $AppartementPrix;
 bungalow::$bangloaw_prix = $BangloawPrix;
 
-///////////////////// class chambre;
 
 
 
@@ -86,7 +85,6 @@ class chambre_Double extends chambre{
     {   
            $this->name = $name;
            $this->type = $type; 
-        //    $this->prix = $prix; 
     }
     public function tarif_chambre($type_lit){
         if($this->type == "lit double")
