@@ -326,7 +326,7 @@ header {
 
 .menu_mobile {
   position: fixed;
-  background-color: yellow;
+  background-color: #37a8f3;
   height: 100vh;
   width: 100%;
   text-align: center;
@@ -997,4 +997,109 @@ body {
   .contact_us .back_to_home {
     padding-bottom: 30px;
   }
+}
+
+.zone_connexion_1 {
+  width: 30%;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 0px 7px 3px black;
+  margin-top: 100px;
+  margin: auto;
+  text-align: center;
+  height: 800px;
+  position: fixed;
+  top: 63px;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 50px 0px;
+}
+
+.zone_connexion_1 .zone_input {
+  padding: 20px 0px;
+}
+
+.zone_connexion_1 h2 {
+  padding-bottom: 20px;
+}
+
+.zone_connexion_1 label {
+  display: block;
+}
+
+.zone_connexion_1 input,
+.zone_connexion_1 .connect_wit_hgoogle,
+.zone_connexion_1 .connect_with_fb {
+  outline: none;
+  border-bottom: 1px solid black;
+  width: 70%;
+  height: 40px;
+  padding-left: 10px;
+}
+
+.zone_connexion_1 input:hover, .zone_connexion_1 input:focus,
+.zone_connexion_1 .connect_wit_hgoogle:hover,
+.zone_connexion_1 .connect_wit_hgoogle:focus,
+.zone_connexion_1 .connect_with_fb:hover,
+.zone_connexion_1 .connect_with_fb:focus {
+  border-bottom: 1px solid #3385f1;
+  box-shadow: 0px 0px 1px 0px black;
+}
+
+.zone_connexion_1 .checkbox_zone {
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 90px;
+}
+
+.zone_connexion_1 .checkbox_zone input {
+  width: 4%;
+}
+
+.zone_connexion_1 .checkbox_zone label {
+  position: relative;
+  left: 20px;
+  top: 6px;
+}
+
+.zone_connexion_1 .zone_btn {
+  text-align: -webkit-center;
+}
+
+.zone_connexion_1 button {
+  display: block;
+  width: 70%;
+  padding: 15px 0px;
+  border-radius: 7px;
+  margin-top: 15px;
+  color: white;
+}
+
+.zone_connexion_1 button:hover {
+  border: 1px solid #e52e52 !important;
+}
+
+.zone_connexion_1 p {
+  padding: 30px 0px 0px 0px;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.zone_connexion_1 .sign_with {
+  text-align: center;
+}
+
+.zone_connexion_1 .sign_with svg {
+  margin: 10px 20px;
+  cursor: pointer;
+  transition: ease-out 0.6s;
+}
+
+.zone_connexion_1 .sign_with svg:hover {
+  width: 45px;
+  height: 45px;
 }

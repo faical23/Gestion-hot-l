@@ -1,0 +1,24 @@
+{
+  "name": "gestion-hot-l",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faical23/Gestion-hot-l.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faical23/Gestion-hot-l/issues"
+  },
+  "homepage": "https://github.com/faical23/Gestion-hot-l#readme"
+}

@@ -1,11 +1,11 @@
 <?php
 
-// include '../model/db.php';
+session_start();
 include 'fonctions.php';
 
 
 
-if(isset($_POST["valide"]))
+if(isset($_POST["sign_up"]))
 {
     if(isset($_POST['agree'])){
         $Fname =  $_POST['FirstName'];
@@ -31,11 +31,18 @@ if(isset($_POST["valide"]))
         {
             echo "valide inscription";
             INSERT($table,$data_users);
-            // $_SESSION['inscription']="inscription";
+            //// fetch again for get the id and conexion
+            $execetion = new CRUD($table);
+            $result =  $execetion->select("",$data_users);
+             foreach($result as $value){
+                 $_SESSION['id'] = $value["id"];
+             }
+             $_SESSION['user_login']="user_login";
+             header('Location:../vue/home.php');
+
         }
         else{
             echo "email deja exist";
-            // $_SESSION['email_exist']="email_exist";
         }
     }
     else{

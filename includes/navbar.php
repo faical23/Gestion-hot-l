@@ -1,4 +1,17 @@
 <?php
+session_start();
+include "../model/db.php";
+if(!empty($_SESSION['login_users'])){
+    $id = $_SESSION['id'];
+    $user = $_SESSION['role'];
+    $execustion = new CRUD($user);
+    $result =  $execustion->select("",["id" => $id]);
+    foreach($result as $value){
+        $name = $value["Fname"];
+    }  
+}
+
+
 ?>
 <div class="menu_mobile" id="menu_mobile_off">
     <ul>
@@ -12,8 +25,7 @@
         <li><a href="contact.php">
             Contact</a>
         </li>
-
-        <li>
+      
             <button type="button" class="btn btn-primary start_free">Book</button>
         </li>
 
@@ -45,17 +57,35 @@
                             <div class="menu_buttons">
                                 <ul class="row">
                                     <li class="col login">
-                                        <!-- <a href="#" class="login">Conexion</a></li> -->
+        <?php
+                                        if(empty($_SESSION['login_users']))
+                                        {
+                                        ?>
+                                          <a href="home.php?login=inscription" class="login">Conexion</a>
+                                        <?php
+                                        }
+                                        else{
+                                        ?>
                                         <div class="dropdown">
                                                 <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Faical
+                                                    <?php echo $name ?>
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                    <li><a class="dropdown-item" href="dashboard.php">Dashboard</a></li>
-                                                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                                                    <?php
+                                                    if($user == 'admine'){
+                                                    ?>
+                                                        <li><a class="dropdown-item" href="dashboard.php">Dashboard</a></li>
+                                                    <?php
+                                                     }
+                                                    ?>
+                                                    <li><a class="dropdown-item" href="../controller/logic_logout.php">Logout</a></li>
                                                 </ul>
                                         </div>
+                                        <?php
+                                        }
+                                        ?>
 
+        <li>
                                     <li class="col"><button type="button" class="btn btn-primary start_free">Book</button>
                                     </li>
                                     <li class="col">
