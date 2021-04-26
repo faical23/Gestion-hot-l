@@ -1,207 +1,315 @@
-            .hero_navbar {
-                height: 50vh;
-                // @include background("../img/background_home/mindaugas-petrutis-fV2dM2WvKvE-unsplash.jpg");
-                background-color: rgb(75, 119, 241);
-                @media only screen and (max-width: 1024px) {
-                    height: 35vh;
+.hero_page {
+    height: 100vh;
+    @media only screen and (max-width: 1024px) {
+        height: 60vh;
+    }
+    @media only screen and (max-width: 768px) {
+        height: 130vh;
+    }
+    @media only screen and (max-width: 560px) {
+        height: auto;
+    }
+}
+
+.hero_navbar {
+    height: 50vh;
+    @include background("../img/background_home/hero_6.jpg");
+    background-attachment: fixed;
+    background-position: bottom;
+    @media only screen and (max-width: 1024px) {
+        height: 35vh;
+    }
+    @media only screen and (max-width: 560px) {
+        height: auto;
+    }
+}
+
+.form__image {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    form {
+        border: 1px solid black;
+        width: 100%;
+        background-color: white;
+        padding: 35px 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 7px 3px black;
+        h3 {
+            color: $primary-200;
+        }
+        label {
+            margin: 20px 0px;
+            color: $primary-200;
+            font-family: $primary-SemiBold;
+        }
+        #options,
+        #choix_option,
+        #choix_chambre_double,
+        #options_pension,
+        #choices_demi_pension,
+        #start_date,
+        #end_date {
+            border: 1px solid black;
+            border-radius: 3px;
+            height: 34px;
+            padding: 0px 10px;
+            margin-bottom: 20px;
+            width: 49%;
+        }
+        .add_moins {
+            text-align: end;
+            padding: 10px 0px;
+            .btn {
+                background-color: $primary-200 !important;
+                cursor: pointer;
+                font-weight: bolder;
+                font-size: 23px;
+                border-radius: 7px;
+                padding: 1px 10px;
+                color: white;
+                &:hover {
+                    border: 1px solid $primary-200 !important;
+                    color: $primary-200 !important;
+                    background-color: transparent !important;
                 }
             }
-            
-            .form__image {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-end;
-                form {
-                    border: 1px solid black;
-                    width: 100%;
-                    background-color: white;
-                    padding: 35px 30px;
-                    border-radius: 10px;
-                    box-shadow: 0px 0px 7px 3px black;
-                    h3 {
-                        color: #0f2041;
-                    }
-                    label {
-                        margin: 20px 0px;
-                        color: rgba(32, 55, 78, .8);
-                        font-family: $primary-SemiBold;
-                    }
-                    #options,
-                    #choix_option,
-                    #choix_chambre_double,
-                    #options_pension,
-                    #choices_demi_pension,
-                    #start_date,
-                    #end_date {
-                        border: 1px solid black;
-                        border-radius: 3px;
-                        height: 34px;
-                        padding: 0px 10px;
-                        margin-bottom: 20px;
-                        width: 49%;
-                    }
-                    .add_moins {
-                        text-align: end;
-                        padding: 10px 0px;
-                        #add_chambre,
-                        #moins_chambre {
-                            border: 2px solid black;
-                            cursor: pointer;
-                            font-weight: bolder;
-                            font-size: 23px;
-                            border-radius: 7px;
-                            padding: 1px 10px;
-                            background-color: black;
-                            color: white;
-                            &:hover {
-                                background-color: transparent;
-                                color: black;
-                                border: 2px solid black;
-                            }
-                        }
-                    }
-                    .children {
-                        display: flex;
-                        justify-content: space-between;
-                        text-align: center;
-                        .plus_moix_chlid {
-                            width: 130px;
-                            padding: 16px 0px;
-                            border-radius: 5px;
-                            box-shadow: 0px 0px 6px 1px black;
-                            label {
-                                font-size: 11px;
-                                margin: 10px 0px;
-                            }
-                            a {
-                                background-color: black;
-                                color: white;
-                                padding: 1px 8px;
-                                font-size: 13px;
-                                font-weight: bolder;
-                                border-radius: 3px;
-                                &:hover {
-                                    background-color: transparent;
-                                    color: black;
-                                    border: 2px solid black;
-                                }
-                            }
-                            input {
-                                width: 30%;
-                                border: 1px solid black;
-                                border-radius: 4px;
-                                text-align: center;
-                            }
-                        }
-                    }
-                    .date {
-                        padding: 25px 0px 20px 0px;
-                        input {
-                            background-color: #f0f0f0;
-                            height: 50px !important;
-                        }
-                    }
-                    .chickbox_input {
-                        label {
-                            margin: 0px 0px !important;
-                            font-family: $primary-light;
-                            padding-left: 10px;
-                        }
-                    }
-                    button {
-                        color: white;
-                        display: block;
-                        background-color: #e52e52;
-                        width: 100%;
-                        padding: 20px;
-                        border-radius: 7px;
-                        margin-top: 15px;
-                        &:hover {
-                            background-color: transparent;
-                            color: #e52e52;
-                            border: 1px solid #e52e52;
-                        }
+        }
+        .children {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            select {
+                display: none;
+                border: 1px solid black;
+                margin: 16px 0px;
+                width: 130px;
+                border-radius: 7px;
+            }
+            .plus_moix_chlid {
+                width: 130px;
+                padding: 16px 0px;
+                border-radius: 5px;
+                box-shadow: 0px 0px 6px 1px black;
+                label {
+                    font-size: 11px;
+                    margin: 10px 0px;
+                }
+                .btn {
+                    background-color: $primary-200 !important;
+                    cursor: pointer;
+                    font-weight: bolder;
+                    font-size: 13px;
+                    border-radius: 3px;
+                    padding: 1px 8px;
+                    color: white;
+                    &:hover {
+                        border: 1px solid $primary-200 !important;
+                        color: $primary-200 !important;
+                        background-color: transparent !important;
                     }
                 }
-                // .image_chambres {
-                //     text-align: end;
-                //     img {
-                //         width: 80%;
-                //         border-radius: 10px;
-                //         position: relative;
-                //         bottom: 50px;
+                // a {
+                //     background-color: $primary-200;
+                //     color: white;
+                //     padding: 1px 8px;
+                //     font-size: 13px;
+                //     font-weight: bolder;
+                //     border-radius: 3px;
+                //     &:hover {
+                //         background-color: transparent;
+                //         color: $primary-200;
+                //         border: 2px solid $primary-200;
                 //     }
                 // }
-                .blob {
-                    width: 600px;
-                    height: 400px;
-                    background-image: url(../img/Chambre_Simple.jpg);
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    animation: animate 5s linear infinite;
-                    position: relative;
-                    left: 50px;
-                }
-                @keyframes animate {
-                    0%,
-                    100% {
-                        border-radius: 64% 36% 27% 73% / 55% 58% 42% 45%;
-                    }
-                    25% {
-                        border-radius: 73% 27% 26% 38% / 73% 36% 64% 27%;
-                    }
-                    50% {
-                        border-radius: 28% 72% 44% 56% / 49% 40% 60% 51%;
-                    }
-                    75% {
-                        border-radius: 40% 60% 70% 30% / 47% 62% 38% 53%;
-                    }
-                    // 100% {
-                    //     border-radius: 64% 36% 27% 73% / 55% 58% 42% 45%;
-                    // }
-                }
-                @media only screen and (max-width: 1024px) {
-                    .blob {
-                        width: 450px;
-                        left: 20px;
-                    }
-                }
-                @media only screen and (max-width: 768px) {
-                    display: block;
-                    form {
-                        width: 80%;
-                        margin: 20px auto 54px auto;
-                    }
-                    .blob {
-                        width: 450px;
-                        margin: auto;
-                        left: auto;
-                    }
-                }
-                @media only screen and (max-width: 560px) {
-                    form {
-                        width: 100%;
-                        select {
-                            display: block;
-                            width: 100% !important;
-                        }
-                        .children {
-                            display: block;
-                            .plus_moix_chlid {
-                                margin: auto;
-                                margin-bottom: 20px;
-                            }
-                        }
-                        .date {
-                            input {
-                                display: block;
-                                width: 100% !important;
-                            }
-                        }
-                    }
-                    .blob {
-                        width: 350px;
-                    }
+                input {
+                    width: 30%;
+                    border: 1px solid $primary-200;
+                    border-radius: 4px;
+                    text-align: center;
                 }
             }
+        }
+        .date {
+            padding: 25px 0px 20px 0px;
+            input {
+                background-color: #f0f0f0;
+                height: 50px !important;
+            }
+        }
+        .chickbox_input {
+            label {
+                margin: 0px 0px !important;
+                font-family: $primary-light;
+                padding-left: 10px;
+            }
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            border-radius: 7px;
+            margin-top: 15px;
+            &:hover {
+                border: 1px solid $primary-100 !important;
+            }
+        }
+    }
+    .blob {
+        width: 600px;
+        height: 400px;
+        @include background("../img/Chambre_Simple.jpg");
+        animation: animate 5s linear infinite;
+        position: relative;
+        left: 50px;
+    }
+    @keyframes animate {
+        0%,
+        100% {
+            border-radius: 64% 36% 27% 73% / 55% 58% 42% 45%;
+        }
+        25% {
+            border-radius: 73% 27% 26% 38% / 73% 36% 64% 27%;
+        }
+        50% {
+            border-radius: 28% 72% 44% 56% / 49% 40% 60% 51%;
+        }
+        75% {
+            border-radius: 40% 60% 70% 30% / 47% 62% 38% 53%;
+        }
+        // 100% {
+        //     border-radius: 64% 36% 27% 73% / 55% 58% 42% 45%;
+        // }
+    }
+    @media only screen and (max-width: 1024px) {
+        .blob {
+            width: 450px;
+            left: 20px;
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        display: block;
+        form {
+            width: 80%;
+            margin: 20px auto 54px auto;
+        }
+        .blob {
+            width: 450px;
+            margin: auto;
+            left: auto;
+        }
+    }
+    @media only screen and (max-width: 560px) {
+        form {
+            width: 100%;
+            select {
+                display: block;
+                width: 100% !important;
+            }
+            .children {
+                display: block;
+                .plus_moix_chlid {
+                    margin: auto;
+                    margin-bottom: 20px;
+                }
+            }
+            .date {
+                input {
+                    display: block;
+                    width: 100% !important;
+                }
+            }
+        }
+        .blob {
+            width: 350px;
+        }
+    }
+}
+
+.features {
+    margin-top: 50px;
+    color: $primary-200 !important;
+    .features_content {
+        padding: 30px 0px;
+    }
+    .btn {
+        &:hover {
+            border: 1px solid $primary-100 !important;
+        }
+    }
+    .card {
+        padding: 25px;
+        box-shadow: 0px 0px 7px 3px black;
+        svg {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.video_secion {
+    @include background("../img/background_home/hero_1.jpg");
+    background-attachment: fixed;
+    background-position: bottom;
+    margin-top: 40px;
+    padding: 35px 0px;
+    p {
+        color: black;
+    }
+    video {
+        width: 120%;
+        position: relative;
+        bottom: 70px;
+        box-shadow: 0px 0px 6px 1px black;
+    }
+    .conetnt {
+        background-color: white;
+        margin-left: auto;
+        padding: 40px;
+        border-radius: 10px;
+        .btn {
+            &:hover {
+                border: 1px solid $primary-100 !important;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    video {
+        width: 100% !important;
+    }
+    .conetnt {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.secstion_4 {
+    .section4__content {
+        h2 {
+            font-size: 45px !important;
+            text-align: end;
+        }
+        h3 {
+            text-align: end;
+            font-family: auto;
+            font-size: 35px;
+        }
+        p {
+            width: 60%;
+            line-height: 1.8;
+        }
+        .section_4__btn {
+            text-align: end;
+            padding: 30px 0px;
+            .btn {
+                color: white;
+                padding: 10px 40px;
+                &:hover {
+                    background-color: white !important;
+                    border: 1px solid $primary-100 !important;
+                }
+            }
+        }
+    }
+}

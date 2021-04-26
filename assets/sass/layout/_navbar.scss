@@ -128,7 +128,7 @@
         }
         
         .logo {
-            color: red !important;
+            color: $primary-100 !important;
             position: relative;
             z-index: 20;
         }
@@ -138,20 +138,16 @@
         }
         
         header {
-            button {
-                background-color: #e52e52 !important;
-                border: none !important;
-                &:hover {
-                    background-color: white !important;
-                    color: #e52e52 !important;
-                }
+            svg {
+                fill: white;
             }
             a {
                 color: white !important;
                 font-family: $primary-light;
-                &:hover {
+                &:hover,
+                &:focus {
                     text-decoration: none !important;
-                    color: #e52e52 !important;
+                    color: $primary-100 !important;
                 }
             }
             a::after {
@@ -160,11 +156,33 @@
                 width: 0px;
                 height: 3px;
                 transition: width .3s;
-                background-color: #e52e52;
+                background-color: $primary-100;
             }
             a:hover::after {
                 transition: width .3s;
                 width: 100%;
                 margin-top: 10px;
+            }
+            .btn {
+                &:hover {
+                    background-color: white !important;
+                }
+            }
+        }
+        
+        .dropdown {
+            .btn {
+                background: transparent !important;
+                color: white;
+                font-size: 20px;
+                &:hover,
+                &:focus {
+                    background: transparent !important;
+                    color: white;
+                    border: none !important;
+                }
+            }
+            .dropdown-item {
+                color: black !important;
             }
         }

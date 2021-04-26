@@ -1,0 +1,75 @@
+footer {
+    border-bottom: 1px solid white;
+    background-color: $primary-200;
+    color: white !important;
+    p {
+        color: white !important;
+    }
+    a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+            color: $primary-100;
+            text-decoration: none;
+        }
+    }
+    .row {
+        align-items: baseline;
+    }
+    ul {
+        text-align: center;
+        li {
+            padding: 9px 0px;
+        }
+        .btn {
+            font-size: 20px;
+            color: white;
+            padding: 4px 20px;
+            &:hover,
+            &:focus {
+                border: 1px solid $primary-100 !important;
+                background-color: transparent !important;
+                color: $primary-100 !important;
+            }
+        }
+    }
+    .coiecl_media__reclamation {
+        padding-bottom: 40px;
+        .row {
+            align-items: flex-end !important;
+        }
+        .reclamation_policy_faq {
+            ul {
+                display: flex;
+                justify-content: flex-end;
+                li {
+                    padding: 0px 20px !important;
+                }
+            }
+        }
+        .follow_us {
+            padding-top: 50px;
+            svg {
+                margin: 10px 10px;
+                cursor: pointer;
+                transition: ease-out 0.6s;
+                &:hover {
+                    width: 45px;
+                    height: 45px;
+                }
+            }
+        }
+        .follow_us:nth-child(1) {
+            margin: 0px !important;
+        }
+    }
+}
+
+.copyright {
+    background-color: $primary-200;
+    text-align: center;
+    padding: 40px 0px;
+    p {
+        color: white !important;
+    }
+}

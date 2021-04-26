@@ -16,7 +16,7 @@ if(isset($_POST['valide_reserve']))
 
     $Lname = "bahsis";
     $Fname ="mbarek";
-    $id_commnade = "V.9";
+    $id_commnade = "V.10";
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////// chambre
 
@@ -26,7 +26,6 @@ if(isset($_POST['valide_reserve']))
     $chambre_total_insert = "";
     
 for($i = 0 ; $i<$number_choix ; $i++){
-
     $chambre = $_POST["chambre_".$i];
     $type_chambre = $_POST["type_chambre_".$i];
     $type_chambre_double  = "NULL";

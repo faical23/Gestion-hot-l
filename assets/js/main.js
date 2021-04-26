@@ -19,7 +19,13 @@ function choix_chambre() {
 
         options.addEventListener('change', () => {
             var selectValue = options.value;
-            $('#img_chmabre').attr('src', '../assets/img/' + selectValue + '.jpg');
+            var blob = document.querySelector(".blob");
+            blob.style = "background-image: url('../assets/img/chambre_Double.jpg') !imporatnt";
+            // blob.style = "background: red !important";
+
+            // $('.blob').css("background-image", "../img/chambre_Double.jpg");
+
+            // $('#img_chmabre').attr('src', '../assets/img/' + selectValue + '.jpg');
             var choix_option = element.querySelector("#choix_option")
             choix_option.innerHTML = `<option value='Select an option' disabled selected>Select an option</option>`
             for (i = 0; i < type_chambre[selectValue].length; i++) {
@@ -101,24 +107,27 @@ $("#moins_chambre").on('click', function() {
 
 ///////////////  enfant choix chambre
 
-var choix_bebe = ["with lit", "without lit"]
-var choix_adulte = ["add chambre simple", "add lit"]
-$('#bebe').on('change', function() {
-    var bebe = $(this).val();
-    if (bebe >= 1) {
-        $('#choixes_bebe').show();
-    } else {
-        $('#choixes_bebe').hide();
-    }
-})
-$('#adulte').on('change', function() {
-    var adulte = $(this).val();
-    if (adulte >= 1) {
-        $('#choixes_adulte').show();
-    } else if (adulte == 0) {
-        $('#choixes_adulte').hide();
-    }
-})
+// var choix_bebe = ["with lit", "without lit"]
+// var choix_adulte = ["add chambre simple", "add lit"]
+// $('#bebe').on('change', function() {
+//     var bebe = $(this).val();
+//     if (bebe >= 1) {
+//         $('#choixes_bebe').show();
+//     } else {
+//         $('#choixes_bebe').hide();
+//     }
+// })
+// $('#adulte').on('change', function() {
+//     var adulte = $(this).val();
+//     if (adulte >= 1) {
+//         $('#choixes_adulte').show();
+//     } else if (adulte == 0) {
+//         $('#choixes_adulte').hide();
+//     }
+// })
+
+
+
 
 ///// pension choix script
 
@@ -136,3 +145,33 @@ $('#options_pension').on('change', function() {
         $('#choices_demi_pension').hide()
     }
 });
+
+
+/////////////// child script
+
+
+var all_child = document.querySelectorAll(".child_zone")
+
+all_child.forEach(element => {
+    var plus = element.querySelector("#plus");
+    var child = element.querySelector(".child");
+    var select = element.querySelector("select")
+    var moins = element.querySelector("#moins");
+
+    var i = 0;
+    plus.addEventListener("click", () => {
+        i++
+        child.value = i;
+        select.style = 'display:block';
+    })
+    moins.addEventListener("click", () => {
+        if (i >= 1) {
+            i--;
+            child.value = i;
+        } else {
+            select.style = 'display:none';
+        }
+
+    })
+
+})
