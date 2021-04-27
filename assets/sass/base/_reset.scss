@@ -41,6 +41,24 @@ P {
     color: gray;
 }
 
+.back_to_home {
+    text-align: end;
+    width: 70%;
+    a {
+        text-decoration: none;
+        font-size: 20px;
+        color: $primary-100;
+        &:hover,
+        &:hover svg {
+            color: $primary-200 !important;
+            fill: $primary-200;
+        }
+        svg {
+            fill: $primary-100;
+        }
+    }
+}
+
 
 /* HTML5 display-role reset for older browsers */
 

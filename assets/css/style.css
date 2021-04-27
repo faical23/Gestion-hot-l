@@ -43,6 +43,27 @@ P {
   color: gray;
 }
 
+.back_to_home {
+  text-align: end;
+  width: 70%;
+}
+
+.back_to_home a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #e52e52;
+}
+
+.back_to_home a:hover,
+.back_to_home a:hover svg {
+  color: #0f2041 !important;
+  fill: #0f2041;
+}
+
+.back_to_home a svg {
+  fill: #e52e52;
+}
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -198,6 +219,11 @@ textarea {
 @font-face {
   font-family: 'poping-Light';
   src: url(../font/poppins-1/Poppins-Light.otf);
+}
+
+@font-face {
+  font-family: 'RowanMaskide';
+  src: url(../font/rowan_maskide/RowanMaskide.ttf);
 }
 
 /*=== Typography Styling ===*/
@@ -952,27 +978,6 @@ body {
   height: 45px;
 }
 
-.contact_us .back_to_home {
-  text-align: end;
-  width: 70%;
-}
-
-.contact_us .back_to_home a {
-  text-decoration: none;
-  font-size: 20px;
-  color: #e52e52;
-}
-
-.contact_us .back_to_home a:hover,
-.contact_us .back_to_home a:hover svg {
-  color: #0f2041 !important;
-  fill: #0f2041;
-}
-
-.contact_us .back_to_home a svg {
-  fill: #e52e52;
-}
-
 @media only screen and (max-width: 768px) {
   .contact_us .img__contact_us img {
     width: 100%;
@@ -1128,5 +1133,125 @@ body {
 }
 
 .zone_connexion_1 .back_to_home a svg {
+  fill: #e52e52;
+}
+
+.dashboard {
+  display: flex;
+  padding: 25px 50px;
+}
+
+.dashboard .sidebar {
+  width: 18%;
+  background-color: #0f2041;
+  height: 95vh;
+  border-radius: 20px;
+  padding-top: 100px;
+}
+
+.dashboard .sidebar .item_menu {
+  padding: 18px 0px;
+  text-align: center;
+  color: white;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+  transition: ease-out 0.6s;
+}
+
+.dashboard .sidebar .item_menu:hover {
+  background-color: white;
+  color: #e52e52;
+  border: none;
+  border-right: 8px solid #e52e52;
+}
+
+.dashboard .managment {
+  width: 80%;
+  background-color: white;
+  box-shadow: 0px 0px 7px 3px black;
+  height: 95vh;
+  border-radius: 20px;
+  margin-left: auto;
+  padding: 30px 50px;
+  color: #0f2041;
+  text-align: center;
+}
+
+.dashboard .managment .card {
+  box-shadow: 0px 0px 5px 1px black;
+  background-color: #e52e52;
+  padding: 15px 0px;
+  height: 125px;
+  color: white;
+  text-align: center;
+}
+
+.dashboard .managment input {
+  border: 1px solid #0f2041;
+  height: 48px;
+  border-radius: 10px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+.dashboard .managment input:hover, .dashboard .managment input:focus {
+  border: 1px solid #3385f1;
+  box-shadow: 0px 0px 1px 0px black;
+}
+
+.dashboard .managment h2 {
+  font-family: 'RowanMaskide';
+  color: #0f2041;
+  font-size: 40px;
+}
+
+.dashboard .managment .back_to_home {
+  position: relative;
+  top: 40px;
+  width: 100% !important;
+}
+
+.dashboard .managment .zone_table {
+  text-align: center;
+  padding-top: 60px;
+  text-align: -moz-center;
+  height: 560px;
+  overflow: scroll;
+}
+
+.dashboard .managment .zone_table .row {
+  align-items: initial;
+}
+
+.dashboard .managment .zone_table .row .col-xxl-6 {
+  text-align: -moz-center;
+}
+
+.dashboard .managment .zone_table table {
+  border: none;
+  border-collapse: collapse;
+  padding: 0;
+  border-left: none;
+  border-right: none;
+}
+
+.dashboard .managment .zone_table table th {
+  background-color: #0f2041;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  padding: 20px 30px;
+  border: 1px solid #0f2041;
+}
+
+.dashboard .managment .zone_table table td {
+  background-color: white;
+  color: black;
+  padding: 20px 30px;
+  text-align: center;
+  border: 1px solid #0f2041;
+}
+
+.dashboard .managment .zone_table table td .icon_crud a svg:hover {
   fill: #e52e52;
 }
