@@ -14,6 +14,7 @@ if(isset($_POST["sign_up"]))
         $NumberPhone =  $_POST['PhoneNumber'];
         $Password =  $_POST['Password'];
         $table = 'users';
+        $role = "users";
 
         $data_users =["Fname" => $Fname,"Lname" => $Lname, "Email" => $Email
         ,"PhoneNumber" => $NumberPhone,"Password" => $Password];
@@ -29,16 +30,38 @@ if(isset($_POST["sign_up"]))
         $exist_email = CHECK($table,["Email" => $Email]);
         if($exist_email == 0 )
         {
+            $id ="";
             echo "valide inscription";
-            INSERT($table,$data_users);
+            INSERT("users",$data_users);
+            $execetion = new CRUD("users");
+             $result =  $execetion->select("",$data_users);
+              foreach($result as $value){
+                  $id = $value["id"];
+              }
+
             //// fetch again for get the id and conexion
-            $execetion = new CRUD($table);
-            $result =  $execetion->select("",$data_users);
-             foreach($result as $value){
-                 $_SESSION['id'] = $value["id"];
-             }
-             $_SESSION['user_login']="user_login";
-             header('Location:../vue/home.php');
+            $data_users =["id" => $id ,"Email" => $Email ,"Password" => $Password , "role" => $role];
+             INSERT("position",$data_users);
+
+
+            // $id="";
+            // $role="";
+
+            //  $execetion = new CRUD("position");
+            //  $result =  $execetion->select("",["Email" => $Email , "Password" => $Password]);
+            //   foreach($result as $value){
+            //       $id = $value["id"];
+            //       $role = $value["role"];
+            //   }
+            //   $_SESSION['login_users']="'login_users'";
+
+            //   $_SESSION['id'] = $id;
+            //   $_SESSION['role'] = $role;
+
+            //   echo $_SESSION['id'] ;
+            //   echo "<br/>";
+            //   echo $_SESSION['role'];
+              header('Location:../vue/home.php?login=login');
 
         }
         else{

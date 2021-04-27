@@ -156,7 +156,11 @@ session_start();
 
 
     <script src="../node_modules/jquery/dist/jquery.min.js "></script>
-    <script src="../assets/js/main.js">
+    <script src="../assets/js/main.js"></script>
+    <script>
+
+
+
     </script>
 </body>
 

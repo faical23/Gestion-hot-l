@@ -102,14 +102,14 @@
                                                             margin-top: 100px;
                                                             margin: auto;
                                                             text-align: center;
-                                                            height: 800px;
+                                                            height: 850px;
                                                             position: fixed;
                                                             top: 63px;
                                                             z-index: 100;
                                                             left: 0;
                                                             right: 0;
                                                             bottom: 0;
-                                                            padding: 50px 0px;
+                                                            padding: 12px 13px;
                                                             .zone_input {
                                                                 padding: 20px 0px;
                                                             }
@@ -176,6 +176,24 @@
                                                                     &:hover {
                                                                         width: 45px;
                                                                         height: 45px;
+                                                                    }
+                                                                }
+                                                            }
+                                                            .back_to_home {
+                                                                text-align: center;
+                                                                width: 100%;
+                                                                padding: 30px 0px;
+                                                                a {
+                                                                    text-decoration: none;
+                                                                    font-size: 20px;
+                                                                    color: $primary-100;
+                                                                    &:hover,
+                                                                    &:hover svg {
+                                                                        color: $primary-200 !important;
+                                                                        fill: $primary-200;
+                                                                    }
+                                                                    svg {
+                                                                        fill: $primary-100;
                                                                     }
                                                                 }
                                                             }

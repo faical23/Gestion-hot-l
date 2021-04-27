@@ -21,11 +21,6 @@ function choix_chambre() {
             var selectValue = options.value;
             var blob = document.querySelector(".blob");
             blob.style = "background-image: url('../assets/img/chambre_Double.jpg') !imporatnt";
-            // blob.style = "background: red !important";
-
-            // $('.blob').css("background-image", "../img/chambre_Double.jpg");
-
-            // $('#img_chmabre').attr('src', '../assets/img/' + selectValue + '.jpg');
             var choix_option = element.querySelector("#choix_option")
             choix_option.innerHTML = `<option value='Select an option' disabled selected>Select an option</option>`
             for (i = 0; i < type_chambre[selectValue].length; i++) {
@@ -105,26 +100,6 @@ $("#moins_chambre").on('click', function() {
 
 
 
-///////////////  enfant choix chambre
-
-// var choix_bebe = ["with lit", "without lit"]
-// var choix_adulte = ["add chambre simple", "add lit"]
-// $('#bebe').on('change', function() {
-//     var bebe = $(this).val();
-//     if (bebe >= 1) {
-//         $('#choixes_bebe').show();
-//     } else {
-//         $('#choixes_bebe').hide();
-//     }
-// })
-// $('#adulte').on('change', function() {
-//     var adulte = $(this).val();
-//     if (adulte >= 1) {
-//         $('#choixes_adulte').show();
-//     } else if (adulte == 0) {
-//         $('#choixes_adulte').hide();
-//     }
-// })
 
 
 
@@ -150,28 +125,63 @@ $('#options_pension').on('change', function() {
 /////////////// child script
 
 
+
+
 var all_child = document.querySelectorAll(".child_zone")
 
 all_child.forEach(element => {
     var plus = element.querySelector("#plus");
     var child = element.querySelector(".child");
-    var select = element.querySelector("select")
+    var choix = element.querySelector(".choix_zone")
     var moins = element.querySelector("#moins");
+    var zone_choix_child = element.querySelector(".zone_choix_child");
+    var name = element.querySelector("label").innerHTML;
+
 
     var i = 0;
+
     plus.addEventListener("click", () => {
-        i++
+        i++;
         child.value = i;
-        select.style = 'display:block';
+        if (name == "Adulte(+14years)") {
+
+            zone_choix_child.innerHTML += `
+                        <div class='choix_zone'>
+                            <label>Adulte ${i}</label>
+                            <select id='choixes_bebe' name='adulte_choix_${i}'>
+                                <option value='Select an option ' disabled  selected >options</option>
+                                <option value='Add Lit'>Add Lit</option>
+                                <option value='Add Chambre'>add Chambre</option>
+
+                            </select>
+                </div>`;
+        } else if (name == "Bebe(-2years)") {
+
+            zone_choix_child.innerHTML += `
+                <div class="choix_zone">
+                    <label>Bebe ${i}</label>
+                    <select id="choixes_bebe" name="bebe_choix_${i}">
+                        <option value="Select an option " disabled  selected >options</option>
+                        <option value="Add lit">Add Lit</option>
+                        <option value="Without lit">Without lit</option>
+                    </select>
+                </div>`;
+        }
     })
     moins.addEventListener("click", () => {
         if (i >= 1) {
             i--;
             child.value = i;
-        } else {
-            select.style = 'display:none';
+            zone_choix_child.removeChild(zone_choix_child.lastElementChild);
         }
 
     })
+})
+moins.addEventListener("click", () => {
+    if (i >= 1) {
+        i--;
+        child.value = i;
+        zone_choix_child.removeChild(zone_choix_child.lastElementChild);
+    }
 
 })
