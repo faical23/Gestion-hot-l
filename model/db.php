@@ -94,6 +94,15 @@ include "../model/connect.php";
             $stmt->execute();
             return $stmt;
     } 
+    public function get_total($culomn){
+        $sql = " SELECT SUM($culomn) FROM $this->table ";
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->execute(); 
+        $result = $stmt->fetchALL();
+        return $result;
+
+    }
+
 }
 
 

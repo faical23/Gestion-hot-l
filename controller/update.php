@@ -14,10 +14,7 @@ echo $prix;
     if(is_numeric($prix)){
         $execustion = new CRUD($table);
         $execustion->update(["Prix" => $prix],$id);
-        if($table == "chambre_prix")
-        {
             header('Location:../vue/dashboard.php?manage=tarifs');
-        }
     }
     else{
         echo "is not number";

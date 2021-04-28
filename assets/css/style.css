@@ -440,7 +440,6 @@ header .btn:hover {
 }
 
 footer {
-  border-bottom: 1px solid white;
   background-color: #0f2041;
   color: white !important;
 }
@@ -463,60 +462,16 @@ footer .row {
   align-items: baseline;
 }
 
-footer ul {
+footer .logo {
+  text-align: start;
+}
+
+footer .copytight {
   text-align: center;
 }
 
-footer ul li {
-  padding: 9px 0px;
-}
-
-footer ul .btn {
-  font-size: 20px;
-  color: white;
-  padding: 4px 20px;
-}
-
-footer ul .btn:hover, footer ul .btn:focus {
-  border: 1px solid #e52e52 !important;
-  background-color: transparent !important;
-  color: #e52e52 !important;
-}
-
-footer .coiecl_media__reclamation {
-  padding-bottom: 40px;
-}
-
-footer .coiecl_media__reclamation .row {
-  align-items: flex-end !important;
-}
-
-footer .coiecl_media__reclamation .reclamation_policy_faq ul {
-  display: flex;
-  justify-content: flex-end;
-}
-
-footer .coiecl_media__reclamation .reclamation_policy_faq ul li {
-  padding: 0px 20px !important;
-}
-
-footer .coiecl_media__reclamation .follow_us {
-  padding-top: 50px;
-}
-
-footer .coiecl_media__reclamation .follow_us svg {
-  margin: 10px 10px;
-  cursor: pointer;
-  transition: ease-out 0.6s;
-}
-
-footer .coiecl_media__reclamation .follow_us svg:hover {
-  width: 45px;
-  height: 45px;
-}
-
-footer .coiecl_media__reclamation .follow_us:nth-child(1) {
-  margin: 0px !important;
+footer .reclamation {
+  text-align: end;
 }
 
 .copyright {
@@ -1041,7 +996,8 @@ body {
 
 .zone_connexion_1 input,
 .zone_connexion_1 .connect_wit_hgoogle,
-.zone_connexion_1 .connect_with_fb {
+.zone_connexion_1 .connect_with_fb,
+.zone_connexion_1 textarea {
   outline: none;
   border-bottom: 1px solid black;
   width: 70%;
@@ -1053,7 +1009,9 @@ body {
 .zone_connexion_1 .connect_wit_hgoogle:hover,
 .zone_connexion_1 .connect_wit_hgoogle:focus,
 .zone_connexion_1 .connect_with_fb:hover,
-.zone_connexion_1 .connect_with_fb:focus {
+.zone_connexion_1 .connect_with_fb:focus,
+.zone_connexion_1 textarea:hover,
+.zone_connexion_1 textarea:focus {
   border-bottom: 1px solid #3385f1;
   box-shadow: 0px 0px 1px 0px black;
 }
@@ -1192,6 +1150,7 @@ body {
   border-radius: 10px;
   padding-left: 20px;
   margin-bottom: 30px;
+  width: 30%;
 }
 
 .dashboard .managment input:hover, .dashboard .managment input:focus {
@@ -1215,6 +1174,7 @@ body {
   text-align: center;
   padding-top: 60px;
   text-align: -moz-center;
+  text-align: -webkit-center;
   height: 560px;
   overflow: scroll;
 }
@@ -1254,4 +1214,20 @@ body {
 
 .dashboard .managment .zone_table table td .icon_crud a svg:hover {
   fill: #e52e52;
+}
+
+.reclamation input {
+  margin: 10px 0px !important;
+}
+
+.reclamation textarea {
+  height: 150px;
+  padding-top: 10px;
+}
+
+.reclamation .zone_btn {
+  margin-top: 40px;
+  text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
 }

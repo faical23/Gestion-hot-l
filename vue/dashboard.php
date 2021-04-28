@@ -1,6 +1,23 @@
 <?php
     session_start();
     include "../model/db.php";
+
+    /// get how many users we have today?
+    $execution = new CRUD("client");
+    $client_numbers = $execution->select("yes");
+
+    /// get how many chambre we use  today?
+    $execution = new CRUD("bients");
+    $chambres_numbers = $execution->select("yes");
+
+     /// get totatl prix?
+     $execution = new CRUD("commnades");
+     $total_prix = $execution->get_total("total");
+     
+     foreach($total_prix as $value){
+         $price_total_commande = $value["SUM(total)"];
+     } 
+    
 ?>
 
 <!DOCTYPE html>
@@ -25,29 +42,28 @@
                 <a href="dashboard.php?manage=users" >
                     <div class="item_menu">Manage users</div>
                 </a>
-                <a href="dashboard.php?manage=employes"  >
-                    <div class="item_menu">Manage employes</div>
+                <a href="dashboard.php?manage=reclamation"  >
+                    <div class="item_menu">reclamation</div>
                 </a>
-        
     </div>
 <div class="managment">
     <div class="row">
         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-12">
             <div class="card">
                 <h3>Client</h3>
-                <h3>50</h3>
+                <h3><?php echo $client_numbers;?></h3>
             </div>
         </div>
         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-12">
             <div class="card">
                 <h3>Chambre</h3>
-                <h3>80</h3>
+                <h3><?php echo $chambres_numbers?></h3>
             </div>
         </div>
         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-12">
             <div class="card">
                 <h3>Total</h3>
-                <h3>50</h3>
+                <h3><?Php echo $price_total_commande . "$"?></h3>
             </div>
         </div>
     </div>
@@ -175,8 +191,115 @@
             ?>
             </table>
             <?php
+            }            
+            if($_GET["manage"] == "users")
+            {
+
+            ?>
+                <input type="text" placeholder="Search client" value="">
+                <table  cellspacing="0" cellpadding="0">
+                            <tr>
+                                <th>First Name</th>
+                                <th>FLast Name</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Action</th>
+                            </tr>
+
+                            <?php
+                                $table = "users";
+                                $execution = new CRUD($table);
+                                $result = $execution->select();
+                                foreach($result as $value)
+                                {
+                            
+                            ?>
+
+                            <tr>
+                                <td><?php echo $value["Fname"] ?></td>
+                                <td><?php echo $value["Lname"] ?></td>
+                                <td><?php echo $value["Email"] ?></td>
+                                <td><?php echo $value["PhoneNumber"] ?></td>
+                                <td>
+                                    <div class="icon_crud">
+                                        <a hred="#" onclick="delete_data(<?php echo $value['id']?> , '<?php echo $table?>')">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 24 24" width="40px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg> 
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+            <?php
             }
             ?>
+            </table>
+            <?php
+            }
+            ?>
+
+
+
+
+
+<!--- manage reclamation -->
+
+
+            <?php
+                if($_GET["manage"] == "reclamation")
+                {
+
+            ?>
+                <input type="text" placeholder="Search client" value="">
+                <table  cellspacing="0" cellpadding="0">
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                                <th>Action</th>
+                            </tr>
+
+                            <?php
+                                $table = "reclamation";
+                                $execution = new CRUD($table);
+                                $result = $execution->select();
+                                foreach($result as $value)
+                                {
+                            
+                            ?>
+
+                            <tr>
+                                <td><?php echo $value["name"] ?></td>
+                                <td><?php echo $value["email"] ?></td>
+                                <td><?php echo $value["sujet"] ?></td>
+                                <td><?php echo $value["reclamation"] ?></td>
+                                <td>
+                                    <div class="icon_crud">
+                                        <a href="#" onclick="show_data_client(<?php echo $value['id']?>)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 24 24" width="40px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 6c3.79 0 7.17 2.13 8.82 5.5C19.17 14.87 15.79 17 12 17s-7.17-2.13-8.82-5.5C4.83 8.13 8.21 6 12 6m0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5c1.38 0 2.5 1.12 2.5 2.5S13.38 14 12 14s-2.5-1.12-2.5-2.5S10.62 9 12 9m0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z"/></svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+            <?php
+            }
+            ?>
+            </table>
+            <?php
+            }
+            ?>
+
+
+
+
+
+
+
+
+
          </div>
 
         <div class="back_to_home">
@@ -223,10 +346,22 @@
 </g>
 </svg>
 </a>
-                </div>
-    </div>
+</div>
+
+
+
+
 
 </div>
+
+
+
+    
+
+</div>
+
+
+
 </section>
 
 
@@ -241,10 +376,10 @@
 
 <script>
 
-const update_chambre_prix = (id,name,table) =>{
+let update_chambre_prix = (id, name, table) => {
 
-    swal(`prix : ${name}`, {
-    content: "input",
+swal(`prix : ${name}`, {
+        content: "input",
     })
     .then((value) => {
         swal(`${name} : ${value} $`);
@@ -253,26 +388,23 @@ const update_chambre_prix = (id,name,table) =>{
 
 }
 
-// const show_data_client = (id) =>{
-//     swal(`id = ${id}`);
-// }
 
-const delete_data = (id,table) =>{
+let delete_data = (id, table) => {
 
-    swal({
+swal({
         title: "Are you sure?",
         text: "Once deleted, you will not be able to recover this imaginary file!",
         icon: "warning",
         buttons: true,
         dangerMode: true,
-        })
-        .then((willDelete) => {
+    })
+    .then((willDelete) => {
         if (willDelete) {
             window.location.href = `../controller/delete.php?id=${id}&table=${table}`;
         } else {
             swal("Your imaginary file is safe!");
         }
-        });
+    });
 
 
 }

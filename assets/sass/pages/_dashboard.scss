@@ -47,6 +47,7 @@
             border-radius: 10px;
             padding-left: 20px;
             margin-bottom: 30px;
+            width: 30%;
             &:hover,
             &:focus {
                 border: 1px solid rgb(51, 133, 241);
@@ -67,6 +68,7 @@
             text-align: center;
             padding-top: 60px;
             text-align: -moz-center;
+            text-align: -webkit-center;
             height: 560px;
             overflow: scroll;
             .row {

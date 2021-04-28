@@ -185,3 +185,39 @@ moins.addEventListener("click", () => {
     }
 
 })
+
+/////////// popup delete and update
+
+
+// let update_chambre_prix = (id, name, table) => {
+
+//     swal(`prix : ${name}`, {
+//             content: "input",
+//         })
+//         .then((value) => {
+//             swal(`${name} : ${value} $`);
+//             window.location.href = `../controller/update.php?id=${id}&prix=${value}&table=${table}`;
+//         });
+
+// }
+
+
+// let delete_data = (id, table) => {
+
+//     swal({
+//             title: "Are you sure?",
+//             text: "Once deleted, you will not be able to recover this imaginary file!",
+//             icon: "warning",
+//             buttons: true,
+//             dangerMode: true,
+//         })
+//         .then((willDelete) => {
+//             if (willDelete) {
+//                 window.location.href = `../controller/delete.php?id=${id}&table=${table}`;
+//             } else {
+//                 swal("Your imaginary file is safe!");
+//             }
+//         });
+
+
+// }
