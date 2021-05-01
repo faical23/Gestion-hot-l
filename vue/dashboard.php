@@ -3,19 +3,19 @@
     include "../model/db.php";
 
     /// get how many users we have today?
-    $execution = new CRUD("client");
+    $execution = new CRUD("clients");
     $client_numbers = $execution->select("yes");
 
     /// get how many chambre we use  today?
-    $execution = new CRUD("bients");
+    $execution = new CRUD("client_service");
     $chambres_numbers = $execution->select("yes");
 
      /// get totatl prix?
-     $execution = new CRUD("commnades");
-     $total_prix = $execution->get_total("total");
+     $execution = new CRUD("clients");
+     $total_prix = $execution->get_total("Total_Prix");
      
      foreach($total_prix as $value){
-         $price_total_commande = $value["SUM(total)"];
+         $price_total_commande = $value["SUM(Total_Prix)"];
      } 
     
 ?>
@@ -36,7 +36,7 @@
                 <a href="dashboard.php?manage=tarifs" >
                     <div class="item_menu">Manage tarifs</div>
                 </a">
-                <a href="dashboard.php?manage=client"  >
+                <a href="dashboard.php?manage=clients"  >
                     <div class="item_menu">Manage clients</div>
                 </a>
                 <a href="dashboard.php?manage=users" >
@@ -84,26 +84,31 @@
                     <table  cellspacing="0" cellpadding="0">
                             <tr>
                                 <th>Name</th>
+                                <th>Type</th>
+                                <th>Second Type</th>
                                 <th>Prix</th>
                                 <th>Action</th>
                             </tr>
                         <?php
-                        $table = 'chambre_prix';
+                        $table = 'chambres';
                             $execution = new CRUD($table);
                             $result = $execution->select();
                             foreach($result as $value){
                         ?>
-                            <tr>
-                                <td><?php echo $value["name"]?></td>
-                                <td><?php echo $value["Prix"] . "$"?></td>
-                                <td>
+                        <tr>
+                            <td><?php echo $value["name"]?></td>
+                            <td><?php echo $value["type"]?></td>
+                            <td><?php echo $value["second_type"]?></td>
+                            <td><?php echo $value["prix"] . "$"?></td>
+                            <td>
                                     <div class="icon_crud">
-                                        <a hred="#" onclick="update_chambre_prix(<?php echo $value['id'];?>,'<?php echo $value['name'];?>','<?php echo $table;?>')">
+                                        <a hred="#"  onclick="update_chambre_prix(<?php echo $value['id'];?>,'<?php echo $value['name'];?>','<?php echo $table;?>')">
                                             <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 24 24" width="40px" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM5.92 19H5v-.92l9.06-9.06.92.92L5.92 19zM20.71 5.63l-2.34-2.34c-.2-.2-.45-.29-.71-.29s-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41z"/></svg>   
                                         </a>
                                     </div>
-                                </td>
-                            </tr>
+                             </td>
+
+                        </tr>
                         <?php
                             }
                         ?>
@@ -115,18 +120,20 @@
                     <table  cellspacing="0" cellpadding="0">
                             <tr>
                                 <th>Name</th>
+                                <th>Second choix</th>
                                 <th>Prix</th>
                                 <th>Action</th>
                             </tr>
                         <?php
-                            $table = "pension_prix";
+                            $table = "pension";
                             $execution = new CRUD($table);
                             $result = $execution->select();
                             foreach($result as $value){
                         ?>
                             <tr>
                                 <td><?php echo $value["name"]?></td>
-                                <td><?php echo $value["Prix"] . "$"?></td>
+                                <td><?php echo $value["second_choix"]?></td>
+                                <td><?php echo $value["prix"] . "$"?></td>
                                 <td>
                                 <div class="icon_crud">
                                         <a hred="#" onclick="update_chambre_prix(<?php echo $value['id'];?>,'<?php echo $value['name'];?>','<?php echo $table;?>')">
@@ -148,37 +155,54 @@
                 }
 
             
-            if($_GET["manage"] == "client")
+            if($_GET["manage"] == "clients")
             {
+                $table = "clients";
+                $execution = new CRUD($table);
+
+                if(isset($_GET["name"])){
+                    $name = $_GET["name"]; 
+                    if( $name != ""){
+                        $result = $execution->select("",["Fname" => $name]);
+                    }
+                    else{
+                        $result = $execution->select();
+                    }
+                }
+                else{
+                    $result = $execution->select();
+                }
+
 
             ?>
-                <input type="text" placeholder="Search client" value="">
+                <input type="text" placeholder="Search client" value="" id="zone_search">
+                <button class="btn"  id="search" onclick="search('<?php echo $table?>')">Search</button>
+
                 <table  cellspacing="0" cellpadding="0">
                             <tr>
-                                <th>ID commande</th>
                                 <th>First Name</th>
                                 <th>FLast Name</th>
+                                <th>Prix</th>
+                                <th>ID client</th>
                                 <th>Action</th>
                             </tr>
             <?php
-            $table = "client";
-            $execution = new CRUD($table);
-            $result = $execution->select();
             foreach($result as $value)
             {
             
             ?>
 
                             <tr>
-                                <td><?php echo $value["id_commande"]?></td>
                                 <td><?php echo $value["Fname"] ?></td>
                                 <td><?php echo $value["Lname"] ?></td>
+                                <td><?php echo $value["Total_Prix"] ?></td>
+                                <td><?php echo $value["ID_client"] ?></td>
                                 <td>
                                     <div class="icon_crud">
-                                         <a href="#" onclick="show_data_client(<?php echo $value['id']?>)">
+                                         <a href="#" >
                                             <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 24 24" width="40px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 6c3.79 0 7.17 2.13 8.82 5.5C19.17 14.87 15.79 17 12 17s-7.17-2.13-8.82-5.5C4.83 8.13 8.21 6 12 6m0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5c1.38 0 2.5 1.12 2.5 2.5S13.38 14 12 14s-2.5-1.12-2.5-2.5S10.62 9 12 9m0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z"/></svg>
                                         </a>
-                                        <a hred="#" onclick="delete_data(<?php echo $value['id']?> , '<?php echo $table?>')">
+                                        <a hred="#" onclick="delete_data(<?php echo $value['ID_client']?> , '<?php echo $table?>')">
                                             <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 24 24" width="40px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg> 
                                         </a>
                                     </div>
@@ -372,43 +396,35 @@
 <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../assets/js/navbar.js"></script>
 <script src="../assets/js/main.js"></script>
+<script src="../assets/js/popup.js"></script>
+
+
+
+
+<!-- pop up if message Not sent -->
+
+<?php
+    if(!empty($_SESSION["update_not_success"])){
+?>
+    <script>
+        error("error in update please repeat your update");
+    </script>
+<?php
+        unset($_SESSION["update_not_success"]);
+    }
+?>
+
 
 
 <script>
+    var search = (table) =>{
+        let name = document.querySelector("#zone_search").value
+        console.log(table);
+        console.log(name);
 
-let update_chambre_prix = (id, name, table) => {
 
-swal(`prix : ${name}`, {
-        content: "input",
-    })
-    .then((value) => {
-        swal(`${name} : ${value} $`);
-        window.location.href = `../controller/update.php?id=${id}&prix=${value}&table=${table}`;
-    });
-
+	window.location ="dashboard.php?manage=" + table + "&name=" + name;
 }
-
-
-let delete_data = (id, table) => {
-
-swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover this imaginary file!",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-    })
-    .then((willDelete) => {
-        if (willDelete) {
-            window.location.href = `../controller/delete.php?id=${id}&table=${table}`;
-        } else {
-            swal("Your imaginary file is safe!");
-        }
-    });
-
-
-}
-
 </script>
 
 </body>

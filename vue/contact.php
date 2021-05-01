@@ -1,4 +1,5 @@
 <?php
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -33,19 +34,19 @@
                 <h2>Contact us</h2>
                 <form action="../controller/cantact_logic.php" method="POST">
                     <div class="zone_input">
-                        <label>Full Name *</label>
+                        <label>Full Name <span>*</span></label>
                         <input name="Name" type="text">
                     </div>
                     <div class="zone_input">
-                        <label>Email *</label>
+                        <label>Email <span>*</span></label>
                         <input name="Email" type="text">
                     </div>
                     <div class="zone_input">
-                        <label>Subject *</label>
+                        <label>Subject <span>*</span></label>
                         <input name="Subject" type="text">
                     </div>
                     <div class="zone_input">
-                        <label>Message *</label>
+                        <label>Message <span>*</span></label>
                         <textarea  name="Messsage" type="text"></textarea>
                     </div>
                     <button name="valide_message">Send</button>
@@ -188,135 +189,45 @@
     </div>
 </section>
 
-<!-- <section class="hero_page">
-
-    <section class="hero_navbar">
-
-    <div class="container">
-        <div class="form_zone">
-            <h2>Contact us</h2>
-            <form  action="" method="" >
-            <div class="zone_input">
-                <div class="row">
-                    <div class=" col-xxl-6 col-xl-6 col-sm-6 col-md-6 col-12">
-                        <label>Full Name *</label>
-                        <input name="Name" type="text">
-                    </div>
-                    <div class="col-xxl-6 col-xl-6 col-sm-6 col-md-6 col-12">
-                        <label>Email *</label>
-                        <input name="Name" type="email">
-                    </div>
-                    <div class="col-xxl-6 col-xl-6 col-sm-6 col-md-6 col-12">
-                        <label>Phone Number</label>
-                        <input name="Name" type="text">
-                    </div>
-                    <div class="col-xxl-6 col-xl-6 col-sm-6 col-md-6 col-12">
-                        <label>Country</label>
-                        <input name="Name" type="text">
-                    </div>
-                    <div class="col-12">
-                        <label>Message *</label>
-                        <textarea name="Messsage" type="text"></textarea>
-                    </div>
-                </div>
-            </div>
-        <div class="zone_btn">
-            <button>Send</button>
-
-        </div>
-
-            </form>
-        </div>
-    </div>
 
 
-
-    </section>
-
-
- </section> -->
-
-
-
-
-
-
-
-
-<!-- <section clas="card_contact">
-    <div class="container">
-        <div class="row">
-        <div class=" col-xxl-4 col-xl-4 col-sm-4 col-md-6 col-12">
-             <div class="card">
-                <h2>Phone</h2>
-                <p>+7543464222</p>
-            </div>
-        </div>
-        <div class=" col-xxl-4 col-xl-4 col-sm-4 col-md-6 col-12">
-             <div class="card">
-                <h2>Adresse</h2>
-                <p>+agadir,morocco</p>
-            </div>
-        </div>
-        <div class=" col-xxl-4 col-xl-4 col-sm-4 col-md-6 col-12">
-             <div class="card">
-                <h2>Email</h2>
-                <p>faissalabr@gamil.com</p>
-            </div>
-        </div>
-
-    </div>
-    </div>
-</section> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="zone_form bg-grey p-10 mb-10  rounded  shadow  border-blue-800 bg-white">
-        <h2 class="text-2xl  font-bold mb-10 text-purple-800">CONTACT US</h2>
-        <form action="../controller/cantact_logic.php" method="POST">
-            <div class="mb-3">
-                <label class="block mb-2 font-bold text-gray-800" for="Fname">NAME</label>
-                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Name" type="text">
-            </div> 
-           <div class="mb-3">
-                <label class="block mb-2 font-bold text-gray-800" for="Fname">EMAIL</label>
-                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Email" type="text">
-            </div>
-            <div class="mb-3">
-                <label class="block mb-2 font-bold text-gray-800" for="Fname">SUBJECT</label>
-                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Subject" type="text">
-            </div> 
-            <div class="mb-3">
-                <label class="block mb-2 font-bold text-gray-800" for="Fname">MESSAGE</label>
-                <textarea class="w-full  h-50 border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Messsage" type="text"></textarea>
-            </div> 
-            <button class="btn w-full bg-purple-600 py-4 rounded text-white font-semibold  hover:bg-white hover:text-purple-800  " name="valide_message">Sign up</button>
-            
-        </form>
-
-    </div> -->
-
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../assets/js/navbar.js"></script>
 <script src="../assets/js/main.js"></script>
+<script src="../assets/js/popup.js"></script>
+
+<!-- pop up if message sent -->
+
+<?php
+    if(!empty($_SESSION['message_send'])){
+?>
+    <script>
+        success("message success");
+    </script>
+<?php
+        unset($_SESSION['message_send']);
+    }
+?>*
+
+
+
+<!-- pop up if message Not sent -->
+
+<?php
+    if(!empty($_SESSION['message_not_send'])){
+?>
+    <script>
+        error("Message not send please check if all field is Full");
+    </script>
+<?php
+        unset($_SESSION['message_not_send']);
+    }
+?>
+
+
 
 </body>
 </html>

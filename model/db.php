@@ -31,9 +31,15 @@ include "../model/connect.php";
                 $i++;
         }
         $sql = "INSERT INTO $this->table ($columns) VALUES ($values_column)"; 
-        $stmt = $this->dbh->prepare($sql);
-        $stmt = $this->dbh->exec($sql); ;
-        return $stmt;
+        try {
+            $stmt = $this->dbh->prepare($sql);
+            $stmt = $this->dbh->exec($sql);
+            return $stmt;
+        }
+        catch(Exception $e) {
+            return $e->getMessage();
+        }
+
     }
 
     public function select($check = "",$conditions = []){
@@ -74,7 +80,7 @@ include "../model/connect.php";
         return $stmt;
     }
 
-    public function update($element = [],$condition){
+    public function update($element = [],$condition,$id){
             $i = 0;
             $sql = "UPDATE $this->table SET ";
             $elment_length =  count($element) -1 ;
@@ -89,10 +95,16 @@ include "../model/connect.php";
                 $i++;
             }
             
-            $sql.= " WHERE id = $condition";
-            $stmt = $this->dbh->prepare($sql);
-            $stmt->execute();
-            return $stmt;
+            $sql.= " WHERE $id = '$condition'";
+            try {
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->execute();
+                return $stmt;
+            }
+            catch(Exception $e) {
+                return $e->getMessage();
+            }
+
     } 
     public function get_total($culomn){
         $sql = " SELECT SUM($culomn) FROM $this->table ";
@@ -102,6 +114,8 @@ include "../model/connect.php";
         return $result;
 
     }
+
+
 
 }
 

@@ -22,8 +22,8 @@ function CHECK ($table,$arr){
 }
 
 function INSERT($table,$arr){
-$exectution = new INSER_DATA();   
-$exectution->INFORMATIONS($table,$arr);
+    $exectution = new INSER_DATA();   
+    $exectution->INFORMATIONS($table,$arr);
 }
 
 ?>

@@ -64,6 +64,10 @@ P {
   fill: #e52e52;
 }
 
+span {
+  color: #e52e52;
+}
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -556,7 +560,7 @@ footer .reclamation {
 .form__image form #options,
 .form__image form #choix_option,
 .form__image form #choix_chambre_double,
-.form__image form #options_pension,
+.form__image form .options_pension,
 .form__image form #choices_demi_pension,
 .form__image form #start_date,
 .form__image form #end_date {
@@ -565,7 +569,7 @@ footer .reclamation {
   height: 34px;
   padding: 0px 10px;
   margin-bottom: 20px;
-  width: 49%;
+  width: 100%;
 }
 
 .form__image form .add_moins {
@@ -1158,7 +1162,21 @@ body {
   box-shadow: 0px 0px 1px 0px black;
 }
 
-.dashboard .managment h2 {
+.dashboard .managment .btn {
+  height: 48px;
+  position: relative;
+  right: 41px;
+  bottom: 2px;
+  border-radius: 10px;
+  padding: 0px 30px;
+}
+
+.dashboard .managment .btn:hover {
+  background-color: #0f2041 !important;
+  color: white !important;
+}
+
+.dashboard .managment .h2 {
   font-family: 'RowanMaskide';
   color: #0f2041;
   font-size: 40px;

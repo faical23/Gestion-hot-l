@@ -13,14 +13,12 @@ var type_chambre_double = {
 };
 
 function choix_chambre() {
-    var all_chambre = document.querySelectorAll("#choix");
+    var all_chambre = document.querySelectorAll(".choix");
     all_chambre.forEach(element => {
         var options = element.querySelector("#options")
 
         options.addEventListener('change', () => {
             var selectValue = options.value;
-            var blob = document.querySelector(".blob");
-            blob.style = "background-image: url('../assets/img/chambre_Double.jpg') !imporatnt";
             var choix_option = element.querySelector("#choix_option")
             choix_option.innerHTML = `<option value='Select an option' disabled selected>Select an option</option>`
             for (i = 0; i < type_chambre[selectValue].length; i++) {
@@ -28,6 +26,7 @@ function choix_chambre() {
             }
 
             var choix_option_double = element.querySelector("#choix_chambre_double")
+            var third_choix_chambre = element.querySelector('.third_choix_chambre');
             if (selectValue == "chambre_Double") {
                 choix_option.addEventListener("change", () => {
                     choix_options = choix_option.value
@@ -39,9 +38,9 @@ function choix_chambre() {
 
                     }
                 })
-                choix_option_double.style = "display:block;"
+                third_choix_chambre.style = "display:block;"
             } else {
-                choix_option_double.style = 'display:none;';
+                third_choix_chambre.style = 'display:none;';
             }
 
 
@@ -49,39 +48,122 @@ function choix_chambre() {
     })
 }
 
+
+
+const pension = () => {
+    var pension = document.querySelectorAll(".pension_choix")
+    var demi_type_pension = ["Petit dej/dej", "Petit dej/din"];
+
+    pension.forEach(element => {
+        var opstions_pension = element.querySelector(".options_pension");
+        var choices_demi_pension = element.querySelector(".choices_demi_pension");
+        var pesion_choix = element.querySelector(".pesion_choix");
+        opstions_pension.addEventListener("change", () => {
+
+            if (opstions_pension.value == "Demi") {
+                pesion_choix.style = "display: initial;";
+                choices_demi_pension.innerHTML = "";
+                choices_demi_pension.innerHTML += `<option value="Select an option" disabled selected>Select an option</option>`
+                for (i = 0; i < demi_type_pension.length; i++) {
+                    let div = `<option value='${demi_type_pension[i]}'>${demi_type_pension[i]}</option>`
+                    choices_demi_pension.innerHTML += div
+                }
+            } else {
+                pesion_choix.style = "display:none";
+            }
+        })
+    })
+}
+
+
+
+
+
+pension();
 choix_chambre();
 new_choix = 1;
 var number_chambre = document.querySelector("#number_chambre");
 console.log(number_chambre);
 $("#add_chambre").on('click', function() {
     $("#all_choix").append(` 
-           <div id="choix">
-                <label style=" margin:20px 0px; display: block;">Selcet Your Chambre</label>
-                  <select id="options" name="chambre_${new_choix}">
-                      <option value="Select an option " disabled selected>Select an option</option>
-                      <option value="chambre_Simple">Chambre simple</option>
-                      <option value="chambre_Double">Chambre Double</option>
-                      <option value="Appartement">Appartement</option>
-                      <option value="bungalow">bungalow</option>
+            <div class="choix">
+            <label style=" margin:20px 0px; display: block;">Selcet Your Room ${new_choix +1}</label>
+            <div class="row">
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-112 col-12">
+                       <div class="choix_chambre">
+                           <span style="display:block">*</span>
+                              <select id="options" name="chambre_${new_choix}">
+                                  <option value="Select an option " disabled selected>Select an option</option>
+                                  <option value="chambre_Simple">Chambre simple</option>
+                                  <option value="chambre_Double">Chambre Double</option>
+                                  <option value="Appartement">Appartement</option>
+                                  <option value="bungalow">bungalow</option>
+                              </select>
+                       </div>
+                  </div>
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-112 col-12">
+                      <div class="second_choix_chambre">
+                          <span style="display:block">*</span>
+                          <select id="choix_option" name="type_chambre_${new_choix}">
+                              <option value="Select an option 1" disabled  selected>Type Chambre</option>
+                          </select>
+  
+                      </div>
+                  </div>
+            </div>
+  
+  
+  
+  
+            <div class="third_choix_chambre" style="display: none;">
+              <span style="display:block">*</span>
+              <select id="choix_chambre_double"  name="type_chambre_double_${new_choix}">
+                  <option value="Select an option" disabled  selected>Please select an option</option>
+              </select>
+  
+            </div>
+  
+  
+  
+                <div class="pension_choix"  style="border-bottom:1px solid black">
+                      <label style=" margin:20px 0px; display: block;">Selcet Your pension</label>
+                         <span style="display:block">*</span>
+                          <select class="options_pension" name="pension_${new_choix}">
+                              <option value="Select an option" disabled selected>Select an option</option>
+                              <option value="complete">Complete</option>
+                              <option value="Demi">demi</option>
+                              <option value="sans">sans</option>
+                          </select>
+                          <div class="pesion_choix" style="display:none;" >
+                          <span style="display:block">*</span>
+                                <select class="choices_demi_pension" id="choices_demi_pension" name="pension_demi_type_${new_choix}">
+                              <option value="Select an option" disabled  selected>Please select an option</option>
+                          </select>
+                      </div>
+              </div>
+      </div> 
+          
+          `)
 
-                  </select>
-
-                  <select id="choix_option" name="type_chambre_${new_choix}">
-                      <option value="Select an option 1" disabled  selected>Type Chambre</option>
-                    </select>
-
-                    <select id="choix_chambre_double" style="display: none;" name="type_chambre_double_${new_choix}">
-                      <option value="Select an option" disabled  selected>Please select an option</option>
-                    </select>
-          </div>`)
     choix_chambre();
     new_choix++;
     number_chambre.value = new_choix;
     console.log(number_chambre.value)
+    document.querySelector(".validation").disabled = true;
+
+
+
+
+
+    //////////////// pension
+    pension();
+
+
+
 })
 
 $("#moins_chambre").on('click', function() {
-    var all_choix = document.querySelectorAll('#choix').length
+    var all_choix = document.querySelectorAll('.choix').length
     if (all_choix > 1) {
         $("#all_choix").children().last().remove();
         new_choix--;
@@ -101,25 +183,6 @@ $("#moins_chambre").on('click', function() {
 
 
 
-
-
-
-///// pension choix script
-
-var demi_type_pension = ["Petit dej/dej", "Petit dej/din"];
-$('#options_pension').on('change', function() {
-    var select_pension = $(this).val();
-    if (select_pension == "Demi") {
-        $('#choices_demi_pension').show()
-        $('#choices_demi_pension').empty();
-        $('#choices_demi_pension').append("<option value='Select an option' disabled  selected> Select an option </option>");
-        for (i = 0; i < demi_type_pension.length; i++) {
-            $('#choices_demi_pension').append("<option value='" + demi_type_pension[i] + "'>" + demi_type_pension[i] + "</option>");
-        }
-    } else {
-        $('#choices_demi_pension').hide()
-    }
-});
 
 
 /////////////// child script
@@ -186,38 +249,54 @@ moins.addEventListener("click", () => {
 
 })
 
-/////////// popup delete and update
 
 
-// let update_chambre_prix = (id, name, table) => {
+/////////// validation form if not empty
 
-//     swal(`prix : ${name}`, {
-//             content: "input",
-//         })
-//         .then((value) => {
-//             swal(`${name} : ${value} $`);
-//             window.location.href = `../controller/update.php?id=${id}&prix=${value}&table=${table}`;
-//         });
+var virified = document.querySelector("#virified");
 
-// }
+virified.addEventListener('click', () => {
 
+    var choix = document.querySelectorAll('.choix');
+    let valide = true;
 
-// let delete_data = (id, table) => {
+    choix.forEach(element => {
 
-//     swal({
-//             title: "Are you sure?",
-//             text: "Once deleted, you will not be able to recover this imaginary file!",
-//             icon: "warning",
-//             buttons: true,
-//             dangerMode: true,
-//         })
-//         .then((willDelete) => {
-//             if (willDelete) {
-//                 window.location.href = `../controller/delete.php?id=${id}&table=${table}`;
-//             } else {
-//                 swal("Your imaginary file is safe!");
-//             }
-//         });
+        let chambre_choix = element.querySelector("#options").value
+        let second_choix_chambre = element.querySelector("#choix_option").value
+        let choix_chambre_double = element.querySelector("#choix_chambre_double").value
+        let options_pension = element.querySelector(".options_pension").value
+        let choices_demi_pension = element.querySelector(".choices_demi_pension ").value;
 
 
-// }
+        let arr = [chambre_choix, second_choix_chambre, options_pension];
+
+
+        for (i = 0; i < arr.length; i++) {
+
+            if (arr[i] == "Select an option") {
+                valide = false
+            }
+        }
+
+        if (second_choix_chambre == "chambre_Double") {
+            if (choix_chambre_double == "Select an option") {
+                valide = false
+            }
+        }
+        if (options_pension == "Demi") {
+            if (choices_demi_pension == "Select an option") {
+                valide = false
+            }
+        }
+        console.log(valide);
+    })
+    if (valide == true) {
+        console.log("congratulations")
+        document.querySelector(".validation").disabled = false;
+        console.log(document.querySelector(".validation"));
+    } else {
+        document.querySelector(".validation").disabled = true;
+    }
+
+})

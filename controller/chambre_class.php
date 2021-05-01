@@ -1,44 +1,56 @@
 <?php
 
-$chambreSimplePrix = 0;
-$chambreDoubleePrix = 0;
-$AppartementPrix = 0;
-$BangloawPrix = 0;
+
+$chambreSimpleVueInteriuerPrix  = 0;
+$chambreDoubleVueInteriuerPrix = 0;
+$AppartementVueInteriuerPrix = 0;
+$BangloawVueInteriuerPrix = 0;
 
 
-$execution = new CRUD("chambre_prix");
+$execution = new CRUD("chambres");
 
-$GetchambreSimple = ["name" => "chambre simple"];
-$GetchambreDouble = ["name" => "chambre double"];
-$GetAppartement = ["name" => "appartement"];
-$GetBangloaw = ["name" => "banglaow"];
+$GetchambreSimpleVueInteriuer = ["name" => "Chambre simple","type" => "Vue interieur"];
+$GetchambreDoubleVueInteriuer = ["name" => "chambre double","type" => "lit double" , "second_type" => "Vue interiuer"];
+$GetAppartementVueInteriuer = ["name" => "appartement","type" => "Vue interieur"];
+$GetBangloawVueInteriuer = ["name" => "bangloaw","type" => "Vue interieur"];
 
 
-$SetChambreSimple  = $execution->select("",$GetchambreSimple);
+$SetChambreSimple  = $execution->select("",$GetchambreSimpleVueInteriuer);
 foreach($SetChambreSimple as $value){
-    $chambreSimplePrix  = $value['Prix'];
+    $chambreSimpleVueInteriuerPrix  = $value['prix'];
+
 }
 
-$SethambreDouble  = $execution->select("",$GetchambreDouble);
+
+
+$SethambreDouble  = $execution->select("",$GetchambreDoubleVueInteriuer);
 foreach($SethambreDouble as $value){
-    $chambreDoubleePrix   = $value['Prix'];
+    $chambreDoubleVueInteriuerPrix  = $value['prix'];
 }
 
-$SetAppartement = $execution->select("",$GetAppartement );
+
+
+$SetAppartement = $execution->select("",$GetAppartementVueInteriuer  );
 foreach($SetAppartement as $value){
-    $AppartementPrix  = $value['Prix'];
-}
-
-$SetBangloaw  = $execution->select("",$GetBangloaw  );
-foreach($SetBangloaw as $value){
-    $BangloawPrix = $value['Prix'];
+    $AppartementVueInteriuerPrix = $value['prix'];
 }
 
 
-chambre_Simple:: $chambre_simple_prix = $chambreSimplePrix;
-chambre_Double::$chambre_Double_prix = $chambreDoubleePrix;
-appartement::$appartement_prix = $AppartementPrix;
-bungalow::$bangloaw_prix = $BangloawPrix;
+
+
+$SetAppartement = $execution->select("",$GetBangloawVueInteriuer);
+foreach($SetAppartement as $value){
+    $BangloawVueInteriuerPrix = $value['prix'];
+}
+
+
+
+
+
+chambre_Simple:: $chambre_simple_prix = $chambreSimpleVueInteriuerPrix ;
+chambre_Double::$chambre_Double_prix = $chambreDoubleVueInteriuerPrix;
+appartement::$appartement_prix = $AppartementVueInteriuerPrix;
+bungalow::$bangloaw_prix = $BangloawVueInteriuerPrix;
 
 
 

@@ -42,34 +42,20 @@ if(isset($_POST["sign_up"]))
             //// fetch again for get the id and conexion
             $data_users =["id" => $id ,"Email" => $Email ,"Password" => $Password , "role" => $role];
              INSERT("position",$data_users);
-
-
-            // $id="";
-            // $role="";
-
-            //  $execetion = new CRUD("position");
-            //  $result =  $execetion->select("",["Email" => $Email , "Password" => $Password]);
-            //   foreach($result as $value){
-            //       $id = $value["id"];
-            //       $role = $value["role"];
-            //   }
-            //   $_SESSION['login_users']="'login_users'";
-
-            //   $_SESSION['id'] = $id;
-            //   $_SESSION['role'] = $role;
-
-            //   echo $_SESSION['id'] ;
-            //   echo "<br/>";
-            //   echo $_SESSION['role'];
               header('Location:../vue/home.php?login=login');
+
 
         }
         else{
-            echo "email deja exist";
+            $_SESSION["Email_exist"] = "email_exist";
+            header('Location:../vue/home.php?login=inscription');
+
         }
     }
     else{
-        echo "regix not valide";
+        $_SESSION["some_filed_empty"] = "some_filed_empty";
+        header('Location:../vue/home.php?login=inscription');
+
     }
 
 

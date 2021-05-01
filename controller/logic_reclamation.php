@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include 'fonctions.php';
 
@@ -20,13 +21,15 @@ if(isset($_POST['valide_message'])){
 
     if($RG_VALIDE){
 
-         echo "message suscce";
          INSERT($table,$data_users);
-         // $_SESSION['inscription']="inscription";
+         $_SESSION['reclamation_sent']='reclamation_sent';
+         header('Location:../vue/home.php');
+
     }
      else{
-         echo "message  not send";
-         // $_SESSION['email_exist']="email_exist";
+         $_SESSION['reclamation_not_sent']="reclamation_not_sent";
+        //  header('Location:../vue/home.php');
+         echo "not";
      }
 
 

@@ -1,6 +1,5 @@
 .dashboard {
     display: flex;
-    // flex-wrap: 15px;
     padding: 25px 50px;
     .sidebar {
         width: 18%;
@@ -54,7 +53,19 @@
                 box-shadow: 0px 0px 1px 0px black;
             }
         }
-        h2 {
+        .btn {
+            height: 48px;
+            position: relative;
+            right: 41px;
+            bottom: 2px;
+            border-radius: 10px;
+            padding: 0px 30px;
+            &:hover {
+                background-color: $primary-200 !important;
+                color: white !important;
+            }
+        }
+        .h2 {
             font-family: 'RowanMaskide';
             color: $primary-200;
             font-size: 40px;

@@ -32,16 +32,18 @@ if(isset($_POST['valide_login'])){
             $_SESSION['login_users']="login_users";
             echo $_SESSION['id'];
             echo $_SESSION['role'];
-             header('Location:../../vue/home.php');
+            header('Location:../vue/home.php');
 
         }
         else{
-            echo "error email or password";
+            $_SESSION["Email_not_exist"] = "Email_not_exist";
+            header('Location:../vue/home.php?login=login');
         }
 
     }
     else{
-        echo "invalide regix";
+        $_SESSION["empty_field"] = "empty_field";
+        header('Location:../vue/home.php?login=login');
     }
 }
 

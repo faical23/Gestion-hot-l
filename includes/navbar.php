@@ -74,7 +74,7 @@ if(!empty($_SESSION['login_users'])){
                                                     <?php
                                                     if($user == 'admine'){
                                                     ?>
-                                                        <li><a class="dropdown-item" href="dashboard.php">Dashboard</a></li>
+                                                        <li><a class="dropdown-item" href="dashboard.php?manage=tarifs">Dashboard</a></li>
                                                     <?php
                                                      }
                                                     ?>

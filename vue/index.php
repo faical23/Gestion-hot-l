@@ -26,7 +26,7 @@ session_start();
 
 
         <!-- chambre choix-->
-<div id="all_choix" style="margin-bottom:20px">
+<div id="all_choix" style="margin-bottom:20px ">
 <input type="number" value="1" id="number_chambre" name="number_chambre">
 <!-- <h1 id="number_chambre" name="number_chambre">1</h1> -->
     <div id="choix">
@@ -57,34 +57,11 @@ session_start();
 
 
 
-      <a style="padding:10px; border:1px solid red; cursor:pointer; display:block;" id="valide_chambre">Valide chambres</a>
+      <!-- <a style="padding:10px; border:1px solid red; cursor:pointer; display:block;" id="valide_chambre">Valide chambres</a> -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- pension choix-->
-
+      <!--pension choix-->
+      
         <label style=" margin:20px 0px; display: block;">Selcet Your pension</label>
         <select id="options_pension" name="pension">
             <option value="Select an option" disabled selected>Select an option</option>
@@ -146,7 +123,7 @@ session_start();
 
 
 
-        <button class="validation" type="submit" name="valide_reserve" style="display: block;">c'est Partie</button>
+        <button class="validation" type="button" name="valide_reserve" style="display: block;" disabled>c'est Partie</button>
     </form>
     <img id="img_chmabre" src="../assets/img/appartement.jpg" style="width:30%; ">
 

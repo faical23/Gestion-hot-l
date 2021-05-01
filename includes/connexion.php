@@ -96,7 +96,7 @@ if($_GET["login"]=="login")
 ?>    
              <h2>Welcome again</h2>
             <a >I don't have account?<a href="home.php?login=inscription" style="color: red">Signup</a></a>
-             <form  action="../controller//logic_login.php" method="POST">
+             <form  action="../controller/logic_login.php" method="POST">
              <div class="zone_input">
                 <input name="Email" type="text" placeholder="Email ">
             </div>

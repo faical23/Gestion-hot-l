@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">    <title>Home</title> -->
 </head>
 
 <body>
@@ -35,45 +35,73 @@
     <h3>Book Your Room now !</h3>
 
 
-    <div id="choix">
+    <div class="choix">
           <label style=" margin:20px 0px; display: block;">Selcet Your Room</label>
-            <select id="options" name="chambre_0">
-                <option value="Select an option " disabled selected>Select an option</option>
-                <option value="chambre_Simple">Chambre simple</option>
-                <option value="chambre_Double">Chambre Double</option>
-                <option value="Appartement">Appartement</option>
-                <option value="bungalow">bungalow</option>
+          <div class="row">
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-112 col-12">
+                     <div class="choix_chambre">
+                         <span style="display:block">*</span>
+                            <select id="options" name="chambre_0">
+                                <option value="Select an option" disabled selected>Select an option</option>
+                                <option value="chambre_Simple">Chambre simple</option>
+                                <option value="chambre_Double">Chambre Double</option>
+                                <option value="Appartement">Appartement</option>
+                                <option value="bungalow">bungalow</option>
+                            </select>
+                     </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-112 col-12">
+                    <div class="second_choix_chambre">
+                        <span style="display:block">*</span>
+                        <select id="choix_option" name="type_chambre_0">
+                            <option value="Select an option" disabled  selected>Type Chambre</option>
+                        </select>
 
+                    </div>
+                </div>
+          </div>
+
+
+
+
+          <div class="third_choix_chambre" style="display: none;">
+            <span style="display:block">*</span>
+            <select id="choix_chambre_double"  name="type_chambre_double_0">
+                <option value="Select an option" disabled  selected>Please select an option</option>
             </select>
 
-            <select id="choix_option" name="type_chambre_0">
-                <option value="Select an option 1" disabled  selected>Type Chambre</option>
-              </select>
+          </div>
 
-              <select id="choix_chambre_double" style="display: none;" name="type_chambre_double_0">
-                <option value="Select an option" disabled  selected>Please select an option</option>
-              </select>
+
+
+              <div class="pension_choix"  style="border-bottom:1px solid black">
+                    <label style=" margin:20px 0px; display: block;">Selcet Your pension</label>
+                        <span style="display:block">*</span>
+                        <select class="options_pension" name="pension_0" value="Select an option">
+                            <option value="Select an option" disabled selected>Select an option</option>
+                            <option value="complete">Complete</option>
+                            <option value="Demi">demi</option>
+                            <option value="sans">sans</option>
+                        </select>
+                        <div class="pesion_choix" style="display:none;" >
+                            <span style="display:block">*</span>
+                            <select class="choices_demi_pension" id="choices_demi_pension" name="pension_demi_type_0">
+                                <option value="Select an option" disabled  selected>Please select an option</option>
+                            </select>
+                        </div>
+
+
+            </div>
     </div> 
 </div>
+
+
 
 <div class="add_moins">
         <a  id="add_chambre" class="btn">+</a>
       <a  id="moins_chambre" class="btn">-</a>
 </div>
 
-<div class="pension_choix">
-    <label style=" margin:20px 0px; display: block;">Selcet Your pension</label>
-        <select id="options_pension" name="pension">
-            <option value="Select an option" disabled selected>Select an option</option>
-            <option value="complete">Complete</option>
-            <option value="Demi">demi</option>
-            <option value="sans">sans</option>
-          </select>
-        <select id="choices_demi_pension" style="display:none;" name="pension_demi_type">
-            <option value="Select an option" disabled  selected>Please select an option</option>
-        </select>
-
-</div>
 
 <label >Children</label>
 <div class="children">
@@ -122,12 +150,20 @@
 
 
       <div class="date">
-           <input type="date" name="start_date" id="start_date">
-           <input type="date" name="end_date" id="end_date">
+          <div class="row">
+                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-112 col-12">
+                    <span style="display:block">*</span>
+                    <input type="date" name="start_date" id="start_date" class="date_start" value="jj-mm-aaaa">
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-112 col-12">
+                    <span style="display:block">*</span>
+                    <input type="date" name="end_date" id="end_date"  value="jj-mm-aaaa">
+                </div>
+          </div>
       </div>
 
 <div class="chickbox_input">
-    <input type="checkbox" name="verified">
+    <input type="checkbox" name="verified" id="virified">
       <label for="">i verified all choix</label>
 </div>
 
@@ -135,16 +171,13 @@
 
 
 
-       <button class="validation" type="submit" name="valide_reserve" style="display: block;">c'est Partie</button>
+       <button class="validation" type="submit" name="valide_reserve" style="display: block;" disabled>c'est Partie</button>
     </form>
 </div>
 
 <div class="blob" >
 
 </div>
-<!-- <div class="image_chambres">
-<img id="img_chmabre"  src="../assets/img/Chambre_Simple.jpg">
-</div> -->
 </section>
     </div>
     </div>
@@ -281,8 +314,125 @@ include '../includes/reclamation.php';
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../assets/js/navbar.js"></script>
 <script src="../assets/js/main.js"></script>
+<script src="../assets/js/popup.js"></script>
+
+
+
+<!-- popup if reserve without login -->
+
+<?php
+    if(!empty($_SESSION["not_login"])){
+?>
+    <script>
+        error("You are not login please you should to login first")
+    </script>
+<?php
+        unset($_SESSION["not_login"]);
+    }
+?>
+
+<!-- popup if reserve with empty some field -->
+
+
+<?php
+    if(!empty($_SESSION["some_fiald_empty"] )){
+?>
+    <script>
+        error("Some filied is emty please check all field  is full")
+    </script>
+<?php
+        unset($_SESSION["some_fiald_empty"] );
+    }
+?>
+
+
+<!-- pop up if reclamation sent -->
+
+<?php
+    if(!empty($_SESSION['reclamation_sent'])){
+?>
+    <script>
+        success("Reclamation success");
+    </script>
+<?php
+        unset($_SESSION['reclamation_sent']);
+    }
+?>
+
+
+
+<!-- pop up if reclamation Not sent -->
+
+<?php
+    if(!empty($_SESSION['reclamation_not_sent'])){
+?>
+    <script>
+        error("Reclamation not send please check if all field is Full");
+    </script>
+<?php
+        unset($_SESSION['reclamation_not_sent']);
+    }
+?>
+
+
+
+<!-- pop up if inscription regix not valide -->
+
+<?php
+    if(!empty($_SESSION["some_filed_empty"])){
+?>
+    <script>
+        error("Some field is empty please check all field  is full")
+    </script>
+<?php
+        unset($_SESSION["some_filed_empty"]);
+    }
+?>
+
+<!-- pop up if inscription email existing-->
+
+<?php
+    if(!empty($_SESSION["Email_exist"] )){
+?>
+    <script>
+        error("Email exist please choose another email")
+    </script>
+<?php
+        unset($_SESSION["Email_exist"] );
+    }
+?>
+
+
+
+
+<!-- pop up if login not exist-->
+
+<?php
+    if(!empty($_SESSION["Email_not_exist"] )){
+?>
+    <script>
+        error("Email or password not exist please repeat again")
+    </script>
+<?php
+        unset($_SESSION["Email_not_exist"] );
+    }
+?>
+
+<!-- pop up if login field emty -->
+
+<?php
+    if(!empty($_SESSION["empty_field"] )){
+?>
+    <script>
+        error("Some field is empty please check all field  is full")
+    </script>
+<?php
+        unset($_SESSION["empty_field"]);
+    }
+?>
 
 </body>
 </html>
