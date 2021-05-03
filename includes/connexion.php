@@ -90,7 +90,6 @@ if($_GET["login"] =="inscription")
 }
 if($_GET["login"]=="login")
 
-    // include "../model/db.php";
 
 {
 ?>    

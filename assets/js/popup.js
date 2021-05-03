@@ -32,8 +32,7 @@ let update_chambre_prix = (id, name, table) => {
 }
 
 
-let delete_data = (id, table) => {
-
+let delete_data = (id, $whereID, table) => {
     swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this imaginary file!",
@@ -43,7 +42,7 @@ let delete_data = (id, table) => {
         })
         .then((willDelete) => {
             if (willDelete) {
-                window.location.href = `../controller/delete.php?id=${id}&table=${table}`;
+                window.location.href = `../controller/delete.php?id=${id}&whereID=${$whereID}&table=${table}`;
             } else {
                 swal("Your imaginary file is safe!");
             }

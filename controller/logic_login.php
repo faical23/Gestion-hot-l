@@ -6,7 +6,7 @@ if(isset($_POST['valide_login'])){
 
     $Email = $_POST["Email"];
     $Password = $_POST["Password"];
-    $table = "position";
+    $table = "positions";
     $user_data = ["Email" => $Email  , "Password" => $Password ];
     $_SESSION['id'] = "";
     $_SESSION['login']="";
@@ -19,7 +19,7 @@ if(isset($_POST['valide_login'])){
         {
 
             $execetion = new CRUD($table);
-           $result =  $execetion->select("",$user_data);
+            $result =  $execetion->select("",$user_data);
 
             $execetion = new CRUD($table);
            $result =  $execetion->select("",$user_data);
@@ -29,6 +29,8 @@ if(isset($_POST['valide_login'])){
 
 
             }
+
+
             $_SESSION['login_users']="login_users";
             echo $_SESSION['id'];
             echo $_SESSION['role'];

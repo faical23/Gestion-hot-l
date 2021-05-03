@@ -31,6 +31,8 @@ include "../model/connect.php";
                 $i++;
         }
         $sql = "INSERT INTO $this->table ($columns) VALUES ($values_column)"; 
+        echo $sql;
+        echo "<br/>";
         try {
             $stmt = $this->dbh->prepare($sql);
             $stmt = $this->dbh->exec($sql);
@@ -58,26 +60,39 @@ include "../model/connect.php";
         }
         $stmt = $this->dbh->prepare($sql);
 
+        try{
 
-        if($check == "yes")
-        {
-            $stmt = $this->dbh->query($sql); 
-            $count = $stmt->rowCount();
-            return $count;
+            if($check == "yes")
+            {
+                $stmt = $this->dbh->query($sql); 
+                $count = $stmt->rowCount();
+                return $count;
+            }
+            else{
+                $stmt->execute(); 
+                $result = $stmt->fetchAll();
+                return $result;
+            }
         }
-        else{
-            $stmt->execute(); 
-            $result = $stmt->fetchAll();
-            return $result;
+        catch(Exception $e) {
+            return $e->getMessage();
         }
     }
 
-    public function delete($condition){
+    public function delete($condition , $where_id){
 
-        $sql = "DELETE from $this->table WHERE id = $condition ";
-        $stmt = $this->dbh->prepare($sql);
-        $stmt->execute();
-        return $stmt;
+        $sql = "DELETE from $this->table WHERE $where_id = '$condition' ";
+        echo $sql;
+        try{
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->execute();
+            return $stmt;
+        }
+        catch(Exception $e) {
+            return $e->getMessage();
+        }
+
+
     }
 
     public function update($element = [],$condition,$id){
@@ -109,12 +124,47 @@ include "../model/connect.php";
     public function get_total($culomn){
         $sql = " SELECT SUM($culomn) FROM $this->table ";
         $stmt = $this->dbh->prepare($sql);
-        $stmt->execute(); 
-        $result = $stmt->fetchALL();
-        return $result;
+        try{
+            $stmt->execute(); 
+            $result = $stmt->fetchALL();
+            return $result;
+        }
+        catch(Exception $e) {
+            return $e->getMessage();
+        }
 
     }
 
+
+    public function get_data($set_data ,$condition,$id){
+
+        $i = 0;
+        $elemnt_select = "";
+        $set_data_length = count($set_data)-1;
+        foreach($set_data as $value)
+        {
+            if($set_data_length == 0)
+            {
+                $elemnt_select .= $value ;
+            }
+            else if($set_data_length == $i){
+                $elemnt_select .= $value ;
+            }
+            else if($set_data_length > 0){
+                $elemnt_select .= $value . ",";
+            }
+            $i++;
+        }
+        $sql = "SELECT $elemnt_select FROM $this->table WHERE $id = '$condition'";
+        try {
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->execute();
+            return $stmt;
+        }
+        catch(Exception $e) {
+            return $e->getMessage();
+        }
+    }
 
 
 }

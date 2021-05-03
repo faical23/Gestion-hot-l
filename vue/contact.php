@@ -210,8 +210,7 @@
 <?php
         unset($_SESSION['message_send']);
     }
-?>*
-
+?>
 
 
 <!-- pop up if message Not sent -->

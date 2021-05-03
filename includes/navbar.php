@@ -5,7 +5,7 @@ if(!empty($_SESSION['login_users'])){
     $id = $_SESSION['id'];
     $user = $_SESSION['role'];
     $execustion = new CRUD($user);
-    $result =  $execustion->select("",["id" => $id]);
+    $result =  $execustion->select("",["ID_client" => $id]);
     foreach($result as $value){
         $name = $value["Fname"];
     }  
@@ -16,15 +16,45 @@ if(!empty($_SESSION['login_users'])){
 <div class="menu_mobile" id="menu_mobile_off">
     <ul>
 
-        <li><a href="#">
+        <li><a href="home.php">
             Home</a>
         </li>
-        <li><a href="#">
+        <li><a href="home.php">
             Our offers</a>
         </li>
         <li><a href="contact.php">
             Contact</a>
         </li>
+        <li >
+        <?php
+                                        if(empty($_SESSION['login_users']))
+                                        {
+                                        ?>
+                                          <a href="home.php?login=inscription" class="login">Conexion</a>
+                                        <?php
+                                        }
+                                        else{
+                                        ?>
+                                        <div class="dropdown">
+                                                <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <?php echo $name ?>
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <?php
+                                                    if($user == 'admine'){
+                                                    ?>
+                                                        <li><a class="dropdown-item" href="dashboard.php?manage=tarifs">Dashboard</a></li>
+                                                    <?php
+                                                     }
+                                                    ?>
+                                                    <li><a class="dropdown-item" href="../controller/logic_logout.php">Logout</a></li>
+                                                </ul>
+                                        </div>
+                                        <?php
+                                        }
+                                        ?>
+
+        <li>
       
             <button type="button" class="btn btn-primary start_free">Book</button>
         </li>
@@ -45,9 +75,9 @@ if(!empty($_SESSION['login_users'])){
                                         </div>
                                     </li>
                                     <li class="col-2">
-                                        <a href="#" class="item_navbar_menu"> Home</a></li>
+                                        <a href="home.php" class="item_navbar_menu"> Home</a></li>
                                     <li class="col-2 item_our_offers">
-                                        <a href="#" class="item_navbar_menu ">Our offers</a></li>
+                                        <a href="our_offers.php" class="item_navbar_menu ">Our offers</a></li>
                                     <li class="col-2">
                                         <a href="contact.php" class="item_navbar_menu"> Contact</a></li>
                                 </ul>

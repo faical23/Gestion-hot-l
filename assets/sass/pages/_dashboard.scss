@@ -88,37 +88,6 @@
                     text-align: -moz-center;
                 }
             }
-            table {
-                border: none;
-                border-collapse: collapse;
-                padding: 0;
-                border-left: none;
-                border-right: none;
-                th {
-                    background-color: $primary-200;
-                    color: white;
-                    text-align: center;
-                    font-size: 1rem;
-                    padding: 20px 30px;
-                    border: 1px solid $primary-200;
-                }
-                td {
-                    background-color: white;
-                    color: black;
-                    padding: 20px 30px;
-                    text-align: center;
-                    border: 1px solid $primary-200;
-                    .icon_crud {
-                        a {
-                            svg {
-                                &:hover {
-                                    fill: $primary-100;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 }

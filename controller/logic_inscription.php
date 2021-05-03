@@ -13,8 +13,8 @@ if(isset($_POST["sign_up"]))
         $Email =  $_POST['Email'];
         $NumberPhone =  $_POST['PhoneNumber'];
         $Password =  $_POST['Password'];
-        $table = 'users';
-        $role = "users";
+        $table = 'positions';
+        $role = "user_account";
 
         $data_users =["Fname" => $Fname,"Lname" => $Lname, "Email" => $Email
         ,"PhoneNumber" => $NumberPhone,"Password" => $Password];
@@ -30,19 +30,32 @@ if(isset($_POST["sign_up"]))
         $exist_email = CHECK($table,["Email" => $Email]);
         if($exist_email == 0 )
         {
-            $id ="";
-            echo "valide inscription";
-            INSERT("users",$data_users);
-            $execetion = new CRUD("users");
-             $result =  $execetion->select("",$data_users);
-              foreach($result as $value){
-                  $id = $value["id"];
-              }
+            foreach($data_users as $value){
+                echo $value;
+                echo "<br/>";
+            }
 
-            //// fetch again for get the id and conexion
-            $data_users =["id" => $id ,"Email" => $Email ,"Password" => $Password , "role" => $role];
-             INSERT("position",$data_users);
-              header('Location:../vue/home.php?login=login');
+            //// insrt to table posiitons
+            $data_positon =["Email" => $Email ,"Password" => $Password , "role" => $role];
+            INSERT("positions",$data_positon);
+
+            //// fetch unique id in table pisitions
+
+            $execetion = new CRUD("positions");
+            $result =  $execetion->select("",$data_positon);
+            $id = "";
+            foreach($result as $value){
+                $id = $value["id"];
+            }
+
+            // echo "<br/>";
+
+            //// insert to table users
+            $data_users =["Fname" => $Fname ,"Lname" => $Lname ,"PhoneNumber" => $NumberPhone ,"Email" => $Email ,"Password" => $Password ,"ID_client" => $id ];
+            INSERT("user_account",$data_users);
+            echo "valide inscription";
+
+            header('Location:../vue/home.php?login=login');
 
 
         }

@@ -25,7 +25,7 @@ else{
         $id = $_SESSION['id'];
         $user = $_SESSION['role'];
         $execustion = new CRUD($user);
-        $result =  $execustion->select("",["id" => $id]);
+        $result =  $execustion->select("",["ID_client" => $id]);
         foreach($result as $value){
             $Fname = $value["Fname"];
             $Lname = $value["Lname"];
@@ -41,7 +41,8 @@ else{
         $First_char_2 = strtoupper($Lname[0]); 
         $Last_char_1 =strtoupper($Fname[$lengh_1-1]); 
         $Last_char_2 = strtoupper($Lname[$lengh_2-1]); 
-        $id_commnade = $First_char_1 . $First_char_2 . $lengh_1 . $lengh_2 .$Last_char_1 . $Last_char_2 .$id . ".V1";
+        $RD = rand(1, 100);
+        $id_commnade = $First_char_1 . $First_char_2 . $lengh_1 . $lengh_2 .$Last_char_1 . $Last_char_2 .$id . $RD;
         echo  $id_commnade;
 
 
@@ -282,13 +283,24 @@ else{
                 echo "<br/>";
         
                 $insert_client = new CRUD("clients");
-                $insert_client->update(["Total_Prix" => $total] , $id_commnade ,"ID_client");        
+                $insert_client->update(["Total_Prix" => $total] , $id_commnade ,"ID_client");       
+                
+                
+
+
+                ///// open session finish reserve
+                $_SESSION["finish_reserve"] = "finish_reserve";
+                $_SESSION["total"] = $total;
+
+                header('Location:../vue/home.php');
+
             }
         }
     }
     else{
         header('Location:../vue/home.php');
-        $_SESSION["some_fiald_empty"] = "some_fiald_empty";    }
+        $_SESSION["some_fiald_empty"] = "some_fiald_empty";
+    }
 }
 
 

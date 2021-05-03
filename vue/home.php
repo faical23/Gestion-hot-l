@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -434,5 +433,29 @@ include '../includes/reclamation.php';
     }
 ?>
 
+
+<!-- pop up if susscess reserve-->
+
+<?php
+    if(!empty($_SESSION["finish_reserve"]  )){
+      $total =  $_SESSION["total"] 
+?>
+    <script>
+        success("Reservation success Total Reserve is : <?php echo $total . "$" ?> ");
+    </script>
+<?php
+        unset($_SESSION["finish_reserve"] );
+    }
+?>
+
+
+
+
+
+
+
+
 </body>
 </html>
+
+
