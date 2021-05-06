@@ -61,6 +61,7 @@ run watch sass file style.scss
 ## How To access a dashboard:
 
 admine account : steve@gmail.com
+<br/>
 password : steve123ABC
 
 <hr>
