@@ -3,7 +3,7 @@
     padding: 25px 50px;
     .sidebar {
         width: 18%;
-        background-color: $primary-200;
+        background-color: #509ee2;
         height: 95vh;
         border-radius: 20px;
         padding-top: 100px;
@@ -16,9 +16,9 @@
             transition: ease-out 0.6s;
             &:hover {
                 background-color: white;
-                color: $primary-100;
+                color: #509ee2;
                 border: none;
-                border-right: 8px solid $primary-100;
+                border-right: 8px solid #509ee2;
             }
         }
     }
@@ -34,7 +34,7 @@
         text-align: center;
         .card {
             box-shadow: 0px 0px 5px 1px black;
-            background-color: $primary-100;
+            background-color: #509ee2;
             padding: 15px 0px;
             height: 125px;
             color: white;
@@ -54,15 +54,15 @@
             }
         }
         .btn {
-            height: 48px;
-            position: relative;
-            right: 41px;
-            bottom: 2px;
-            border-radius: 10px;
-            padding: 0px 30px;
+            background-color: #509ee2 !important;
+            color: white !important;
+            padding: 10px 40px;
+            z-index: 100;
+            cursor: pointer;
             &:hover {
-                background-color: $primary-200 !important;
-                color: white !important;
+                background-color: transparent !important;
+                color: #509ee2!important;
+                border: 2px solid #509ee2 !important;
             }
         }
         .h2 {

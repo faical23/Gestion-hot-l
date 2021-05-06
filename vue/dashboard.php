@@ -2,6 +2,10 @@
     session_start();
     include "../model/db.php";
 
+    if($_SESSION["admine"] != "admine_open"){
+        header('Location:../vue/home.php');
+    }
+
     /// get how many users we have today?
     $execution = new CRUD("clients");
     $client_numbers = $execution->select("yes");
@@ -341,7 +345,7 @@
          </div>
 
         <div class="back_to_home">
-                    <a href="home.php">back to home <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    <a href="index.php">back to home <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	width="30px" height="30px"
 	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 <g>

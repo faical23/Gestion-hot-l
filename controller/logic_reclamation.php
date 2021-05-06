@@ -28,8 +28,7 @@ if(isset($_POST['valide_message'])){
     }
      else{
          $_SESSION['reclamation_not_sent']="reclamation_not_sent";
-        //  header('Location:../vue/home.php');
-         echo "not";
+         header('Location:../vue/home.php');
      }
 
 

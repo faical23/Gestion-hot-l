@@ -57,14 +57,26 @@
         text-align: -webkit-center;
     }
     button {
-        display: block;
-        width: 70%;
         padding: 15px 0px;
         border-radius: 7px;
         margin-top: 15px;
         color: white;
         &:hover {
             border: 1px solid $primary-100 !important;
+        }
+    }
+    .btn {
+        display: block;
+        width: 70%;
+        background-color: #509ee2 !important;
+        color: white !important;
+        padding: 15px 40px;
+        border-radius: 7px;
+        margin-top: 15px;
+        &:hover {
+            background-color: white !important;
+            color: #509ee2!important;
+            border: 1px solid #509ee2 !important;
         }
     }
     p {
@@ -92,14 +104,14 @@
         a {
             text-decoration: none;
             font-size: 20px;
-            color: $primary-100;
+            color: #509ee2 !important;
             &:hover,
             &:hover svg {
                 color: $primary-200 !important;
                 fill: $primary-200;
             }
             svg {
-                fill: $primary-100;
+                fill: #509ee2;
             }
         }
     }

@@ -7,7 +7,9 @@ session_start();
 
 
 if(empty($_SESSION['login_users'])){
-    header('Location:../vue/home.php');
+    // header('Location:../vue/home.php');
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+
     $_SESSION["not_login"] = "not_login";
 }
 else{
@@ -292,13 +294,17 @@ else{
                 $_SESSION["finish_reserve"] = "finish_reserve";
                 $_SESSION["total"] = $total;
 
-                header('Location:../vue/home.php');
+                // header('Location:../vue/home.php');
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+
 
             }
         }
     }
     else{
-        header('Location:../vue/home.php');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+
+        // header('Location:../vue/home.php');
         $_SESSION["some_fiald_empty"] = "some_fiald_empty";
     }
 }

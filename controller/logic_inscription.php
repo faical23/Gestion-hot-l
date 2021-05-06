@@ -3,7 +3,12 @@
 session_start();
 include 'fonctions.php';
 
+$url =   $_SERVER['HTTP_REFERER'];
+$url = str_replace("http://localhost/Gestion-hot-l/vue/", "", $url);
+$url = str_replace("?login=inscription", "", $url);
 
+
+header('Location:../vue/' . $url .'?login=login');
 
 if(isset($_POST["sign_up"]))
 {
@@ -55,19 +60,21 @@ if(isset($_POST["sign_up"]))
             INSERT("user_account",$data_users);
             echo "valide inscription";
 
-            header('Location:../vue/home.php?login=login');
+
+
+
 
 
         }
         else{
             $_SESSION["Email_exist"] = "email_exist";
-            header('Location:../vue/home.php?login=inscription');
+            header('Location:../vue/'. $url.'?login=inscription');
 
         }
     }
     else{
         $_SESSION["some_filed_empty"] = "some_filed_empty";
-        header('Location:../vue/home.php?login=inscription');
+        header('Location:../vue/'. $url.'?login=inscription');
 
     }
 

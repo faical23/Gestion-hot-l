@@ -1,5 +1,6 @@
 
 <?php
+$url = basename($_SERVER['PHP_SELF']); /* Returns The Current PHP File Name */
 
 if(!empty($_GET["login"])){
 
@@ -8,7 +9,7 @@ if($_GET["login"] =="login" || $_GET["login"] =="inscription")
 ?>
 <section class="zone_connexion_1"  <?php  if($_GET["login"] == "login"){?> style="height:600px"<?php  } ?> >
         <div class="back_to_home">
-                    <a href="home.php">back to home <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    <a href="<?php echo $url?>">back to home <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	width="30px" height="30px"
 	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 <g>
@@ -60,7 +61,7 @@ if($_GET["login"] =="inscription")
 {
 ?>
  <h2>Create account</h2>
-        <a >Already have account?<a href="home.php?login=login" style="color: red">Signin</a></a> 
+        <a >Already have account?<a href="<?php echo $url?>?login=login" style="color:  #509ee2 !important">Signin</a></a> 
       <form  action="../controller/logic_inscription.php" method="POST">
                 <div class="zone_input">
                 <input name="FirstName" id="firsttest" type="text" placeholder="First Name">
@@ -94,13 +95,13 @@ if($_GET["login"]=="login")
 {
 ?>    
              <h2>Welcome again</h2>
-            <a >I don't have account?<a href="home.php?login=inscription" style="color: red">Signup</a></a>
+            <a >I don't have account?<a href="<?php echo $url?>?login=inscription" style="color: #509ee2 !important">Signup</a></a>
              <form  action="../controller/logic_login.php" method="POST">
              <div class="zone_input">
                 <input name="Email" type="text" placeholder="Email ">
             </div>
             <div class="zone_input">
-                <input name="Password" type="text" placeholder="Password ">
+                <input name="Password" type="password" placeholder="Password ">
             </div>
             <div class="checkbox_zone">
                     <input type="checkbox" id="agree" name="agree">

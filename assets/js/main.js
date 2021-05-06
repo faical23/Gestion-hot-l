@@ -291,12 +291,14 @@ virified.addEventListener('click', () => {
         }
         console.log(valide);
     })
+    var btn_reserve = document.querySelector(".validation");
     if (valide == true) {
-        console.log("congratulations")
-        document.querySelector(".validation").disabled = false;
-        console.log(document.querySelector(".validation"));
+        btn_reserve.style = "cursor: pointer ;"
+        btn_reserve.disabled = false;
     } else {
-        document.querySelector(".validation").disabled = true;
+        btn_reserve.disabled = true;
+        btn_reserve.style = "cursor: no-drop ;"
+
     }
 
 })

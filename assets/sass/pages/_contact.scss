@@ -54,8 +54,13 @@ body {
                 padding: 20px;
                 border-radius: 7px;
                 margin-top: 15px;
+                background-color: #509ee2 !important;
+                color: white !important;
                 &:hover {
-                    border: 1px solid $primary-100 !important;
+                    border: 1px solid #509ee2!important;
+                    background-color: transparent !important;
+                    color: #509ee2!important;
+                    ;
                 }
             }
         }

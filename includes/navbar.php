@@ -1,5 +1,7 @@
 <?php
 session_start();
+$url = basename($_SERVER['PHP_SELF']); /* Returns The Current PHP File Name */
+
 include "../model/db.php";
 if(!empty($_SESSION['login_users'])){
     $id = $_SESSION['id'];
@@ -16,11 +18,10 @@ if(!empty($_SESSION['login_users'])){
 <div class="menu_mobile" id="menu_mobile_off">
     <ul>
 
-        <li><a href="home.php">
-            Home</a>
-        </li>
-        <li><a href="home.php">
-            Our offers</a>
+        <li>
+            <a href="index.php">
+                Home
+            </a>
         </li>
         <li><a href="contact.php">
             Contact</a>
@@ -54,11 +55,6 @@ if(!empty($_SESSION['login_users'])){
                                         }
                                         ?>
 
-        <li>
-      
-            <button type="button" class="btn btn-primary start_free">Book</button>
-        </li>
-
     </ul>
 </div>
 <nav>
@@ -75,9 +71,7 @@ if(!empty($_SESSION['login_users'])){
                                         </div>
                                     </li>
                                     <li class="col-2">
-                                        <a href="home.php" class="item_navbar_menu"> Home</a></li>
-                                    <li class="col-2 item_our_offers">
-                                        <a href="our_offers.php" class="item_navbar_menu ">Our offers</a></li>
+                                        <a href="index.php" class="item_navbar_menu"> Home</a></li>
                                     <li class="col-2">
                                         <a href="contact.php" class="item_navbar_menu"> Contact</a></li>
                                 </ul>
@@ -90,8 +84,9 @@ if(!empty($_SESSION['login_users'])){
         <?php
                                         if(empty($_SESSION['login_users']))
                                         {
-                                        ?>
-                                          <a href="home.php?login=inscription" class="login">Conexion</a>
+  
+                                            ?>
+                                          <a href="<?php echo $url ?>?login=inscription" class="login">Conexion</a>
                                         <?php
                                         }
                                         else{
@@ -116,7 +111,10 @@ if(!empty($_SESSION['login_users'])){
                                         ?>
 
         <li>
-                                    <li class="col"><button type="button" class="btn btn-primary start_free">Book</button>
+                                    <li class="col">
+                                    <a href="book.php" class="book_btn_header">
+                                        <button type="button" class="btn btn-primary start_free" href="book.php">Book</button>
+                                    </a>
                                     </li>
                                     <li class="col">
                                         <div class=" burger_menu">

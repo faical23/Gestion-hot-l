@@ -37,7 +37,7 @@
     <div class="choix">
           <label style=" margin:20px 0px; display: block;">Selcet Your Room</label>
           <div class="row">
-                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-112 col-12">
+                
                      <div class="choix_chambre">
                          <span style="display:block">*</span>
                             <select id="options" name="chambre_0">
@@ -170,7 +170,7 @@
 
 
 
-       <button class="validation" type="submit" name="valide_reserve" style="display: block;" disabled>c'est Partie</button>
+       <button class="validation" type="submit" name="valide_reserve" style="display: block; cursor: no-drop;" disabled>c'est Partie</button>
     </form>
 </div>
 
@@ -188,7 +188,7 @@
 
 
 
- <section class="features py-5">
+ <!-- <section class="features py-5">
         <div class="container">
             <div class="row">
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-121 col-12">
@@ -299,10 +299,9 @@
         </div>
     </div>
 
-</section>
+</section> -->
 
 <?php
-include '../includes/footer.php';
 include '../includes/connexion.php';
 include '../includes/reclamation.php';
 ?>

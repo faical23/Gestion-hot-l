@@ -15,37 +15,42 @@ if(isset($_POST['valide_login'])){
     $RG_VALIDE = VALIDE($table,$user_data);
     if($RG_VALIDE){
         $exist_email = CHECK($table,$user_data);
-        if( $exist_email == 1)
+        if( $exist_email)
         {
 
             $execetion = new CRUD($table);
             $result =  $execetion->select("",$user_data);
 
             $execetion = new CRUD($table);
-           $result =  $execetion->select("",$user_data);
+            $result =  $execetion->select("",$user_data);
             foreach($result as $value){
                 $_SESSION['id'] = $value["id"];
                 $_SESSION['role'] = $value["role"];
-
-
             }
 
 
             $_SESSION['login_users']="login_users";
-            echo $_SESSION['id'];
-            echo $_SESSION['role'];
-            header('Location:../vue/home.php');
+
+
+            if($_SESSION['role'] == "admine"){
+                $_SESSION["admine"] ="admine_open";
+            }
+            header('Location:../vue/book.php');
+
+    
 
         }
         else{
             $_SESSION["Email_not_exist"] = "Email_not_exist";
-            header('Location:../vue/home.php?login=login');
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            // header('Location:../vue/home.php?login=login');
         }
 
     }
     else{
         $_SESSION["empty_field"] = "empty_field";
-        header('Location:../vue/home.php?login=login');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        // header('Location:../vue/home.php?login=login');
     }
 }
 

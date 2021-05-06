@@ -2,7 +2,8 @@
 
 Session_start();
 Session_destroy();
-header('Location:../vue/home.php');
+
+header('Location:' .$_SERVER['HTTP_REFERER'] .'');
 
 
 ?>

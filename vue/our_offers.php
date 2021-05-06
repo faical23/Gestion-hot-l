@@ -17,15 +17,36 @@
 
 
 
-<section class="hero_navbar page_client_info">
+<section class="hero_navbar our_offers">
 
-<?php 
-    include  '../includes/navbar.php';
-    
-?>
+    <?php 
+        include  '../includes/navbar.php';
+        
+    ?>
+
+    <section class="container">
+        <div class="hero">
+            <h1>Make your happiness with us</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae ex nam corrupti ut rerum vitae, doloremque id minima ab ipsa cumque enim beatae nostrum recusandae architecto molestias? Magni, libero doloribus.</p>
+            <button class="btn">Book!</button>
+        </div>
+
+    </section>
 
 </section>
-    
+
+<section class="container">
+    <div class="image_text">
+        <div class="row">
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-112 col-12"> 
+
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-112 col-12">
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
 
