@@ -40,7 +40,7 @@ Front-End: javascript, Bootstrap,SASS,CSS,HTML
 
 ## How To run the projet :
 
-install xammpp 
+install xammpp
 <br/>
 import file SQL Database
 <br/>
