@@ -58,4 +58,10 @@ run watch sass file style.scss
 <hr>
 
 
+## How To access a dashboard:
+
+admine account : steve@gmail.com
+password : steve123ABC
+
+<hr>
 ## Enjoy
