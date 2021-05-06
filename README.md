@@ -27,3 +27,29 @@ Front-End: javascript, Bootstrap,SASS,CSS,HTML
 (Optionnel) une intrface admin pour gérer les tarifs
 
 (Optionnel) une classe tarification: qui regroupe l'ensemble des tarifs pour gérer aussi haute/basse saison.
+
+
+
+## Temporalité :
+
+8 jours
+
+## How To run the projet :
+
+install xammpp 
+<br/>
+import file SQL Database
+<br/>
+install node js
+<br/>
+npm install jquery
+<br/>
+npm install bootstrap
+<br/>
+npm install sweetalert
+<br/>
+install extension sass from vscode
+<br/>
+run watch sass file style.scss
+
+## Enjoy
