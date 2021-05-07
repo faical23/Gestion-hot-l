@@ -1,0 +1,93 @@
+.dashboard {
+    display: flex;
+    padding: 25px 50px;
+    .sidebar {
+        width: 18%;
+        background-color: #509ee2;
+        height: 95vh;
+        border-radius: 20px;
+        padding-top: 100px;
+        .item_menu {
+            padding: 18px 0px;
+            text-align: center;
+            color: white;
+            border-bottom: 1px solid white;
+            border-top: 1px solid white;
+            transition: ease-out 0.6s;
+            &:hover {
+                background-color: white;
+                color: #509ee2;
+                border: none;
+                border-right: 8px solid #509ee2;
+            }
+        }
+    }
+    .managment {
+        width: 80%;
+        background-color: white;
+        box-shadow: 0px 0px 7px 3px black;
+        height: 95vh;
+        border-radius: 20px;
+        margin-left: auto;
+        padding: 30px 50px;
+        color: $primary-200;
+        text-align: center;
+        .card {
+            box-shadow: 0px 0px 5px 1px black;
+            background-color: #509ee2;
+            padding: 15px 0px;
+            height: 125px;
+            color: white;
+            text-align: center;
+        }
+        input {
+            border: 1px solid $primary-200;
+            height: 48px;
+            border-radius: 10px;
+            padding-left: 20px;
+            margin-bottom: 30px;
+            width: 30%;
+            &:hover,
+            &:focus {
+                border: 1px solid rgb(51, 133, 241);
+                box-shadow: 0px 0px 1px 0px black;
+            }
+        }
+        .btn {
+            background-color: #509ee2 !important;
+            color: white !important;
+            padding: 10px 40px;
+            z-index: 100;
+            cursor: pointer;
+            &:hover {
+                background-color: transparent !important;
+                color: #509ee2!important;
+                border: 2px solid #509ee2 !important;
+            }
+        }
+        .h2 {
+            font-family: 'RowanMaskide';
+            color: $primary-200;
+            font-size: 40px;
+        }
+        .back_to_home {
+            position: relative;
+            top: 40px;
+            width: 100% !important;
+        }
+        .zone_table {
+            text-align: center;
+            padding-top: 60px;
+            text-align: -moz-center;
+            text-align: -webkit-center;
+            height: 560px;
+            overflow: scroll;
+            .row {
+                align-items: initial;
+                .col-xxl-6 {
+                    text-align: -moz-center;
+                }
+            }
+        }
+    }
+}

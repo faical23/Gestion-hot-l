@@ -1,0 +1,135 @@
+.zone_connexion_1 {
+    width: 30%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 7px 3px black;
+    margin-top: 100px;
+    margin: auto;
+    text-align: center;
+    height: 850px;
+    position: fixed;
+    top: 63px;
+    z-index: 700;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 12px 13px;
+    text-align: -moz-center;
+    .zone_input {
+        padding: 20px 0px;
+    }
+    h2 {
+        padding-bottom: 20px;
+    }
+    label {
+        display: block;
+    }
+    input,
+    .connect_wit_hgoogle,
+    .connect_with_fb,
+    textarea {
+        outline: none;
+        border-bottom: 1px solid black;
+        width: 70%;
+        height: 40px;
+        padding-left: 10px;
+        &:hover,
+        &:focus {
+            border-bottom: 1px solid rgb(51, 133, 241);
+            box-shadow: 0px 0px 1px 0px black;
+        }
+    }
+    .checkbox_zone {
+        display: flex;
+        align-items: center;
+        position: relative;
+        left: 90px;
+        input {
+            width: 4%;
+        }
+        label {
+            position: relative;
+            left: 20px;
+            top: 6px;
+        }
+    }
+    .zone_btn {
+        text-align: -webkit-center;
+    }
+    button {
+        padding: 15px 0px;
+        border-radius: 7px;
+        margin-top: 15px;
+        color: white;
+        &:hover {
+            border: 1px solid $primary-100 !important;
+        }
+    }
+    .btn {
+        display: block;
+        width: 70%;
+        background-color: #509ee2 !important;
+        color: white !important;
+        padding: 15px 40px;
+        border-radius: 7px;
+        margin-top: 15px;
+        &:hover {
+            background-color: white !important;
+            color: #509ee2!important;
+            border: 1px solid #509ee2 !important;
+        }
+    }
+    p {
+        padding: 30px 0px 0px 0px;
+        font-size: 20px;
+        text-align: center;
+        width: 100%;
+    }
+    .sign_with {
+        text-align: center;
+        svg {
+            margin: 10px 20px;
+            cursor: pointer;
+            transition: ease-out 0.6s;
+            &:hover {
+                width: 45px;
+                height: 45px;
+            }
+        }
+    }
+    .back_to_home {
+        text-align: center;
+        width: 100%;
+        padding: 30px 0px;
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            color: #509ee2 !important;
+            &:hover,
+            &:hover svg {
+                color: $primary-200 !important;
+                fill: $primary-200;
+            }
+            svg {
+                fill: #509ee2;
+            }
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        width: 90%;
+        position: fixed;
+        top: 0px;
+        padding: 13px 13px;
+        transform: translate(0px, 10px);
+    }
+    @media only screen and (max-width: 560px) {
+        position: fixed;
+        top: 0px;
+        padding: 13px 13px;
+        transform: translate(7px, 5px);
+        height: 900px;
+        .checkbox_zone {
+            left: 40px;
+        }
+    }
+}

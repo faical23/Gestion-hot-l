@@ -1,0 +1,291 @@
+.hero_page {
+    height: 100vh;
+    @media only screen and (max-width: 1024px) {
+        height: 60vh;
+    }
+    @media only screen and (max-width: 768px) {
+        height: 130vh;
+    }
+    @media only screen and (max-width: 560px) {
+        height: auto;
+    }
+}
+
+.hero_page .hero_navbar {
+    height: 60vh;
+    background-image: url(../../img/teeest.jpg);
+    @include background("../img/teeest.jpg");
+    background-attachment: fixed;
+    background-position: top;
+    @media only screen and (max-width: 1024px) {
+        height: 35vh;
+    }
+    @media only screen and (max-width: 560px) {
+        height: auto;
+    }
+}
+
+.form__image {
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    form {
+        border: 1px solid black;
+        width: 100%;
+        background-color: white;
+        padding: 35px 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 7px 3px black;
+        h3 {
+            color: $primary-200;
+        }
+        label {
+            margin: 20px 0px;
+            color: $primary-200;
+            font-family: $primary-SemiBold;
+        }
+        #options,
+        #choix_option,
+        #choix_chambre_double,
+        .options_pension,
+        #choices_demi_pension,
+        #start_date,
+        #end_date {
+            border: 1px solid black;
+            border-radius: 3px;
+            height: 34px;
+            padding: 0px 10px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .add_moins {
+            text-align: end;
+            padding: 10px 0px;
+            .btn {
+                background-color: #509ee2 !important;
+                cursor: pointer;
+                font-weight: bolder;
+                font-size: 23px;
+                border-radius: 7px;
+                padding: 1px 10px;
+                color: white !important;
+                &:hover {
+                    border: 1px solid #509ee2 !important;
+                    color: #509ee2 !important;
+                    background-color: transparent !important;
+                }
+            }
+        }
+        .children {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            label {
+                margin: 15px 0px 5px 0px;
+            }
+            select {
+                display: block;
+                border: 1px solid black;
+                margin: 10px 0px;
+                width: 100px;
+                border-radius: 7px;
+                margin: auto;
+            }
+            .plus_moix_chlid {
+                width: 130px;
+                padding: 16px 0px;
+                border-radius: 5px;
+                box-shadow: 0px 0px 6px 1px black;
+                label {
+                    font-size: 11px;
+                    margin: 10px 0px;
+                }
+                .btn {
+                    background-color: #509ee2 !important;
+                    font-weight: bolder;
+                    font-size: 13px;
+                    border-radius: 3px;
+                    padding: 1px 8px;
+                    color: white !important;
+                    &:hover {
+                        border: 1px solid #509ee2 !important;
+                        color: #509ee2 !important;
+                        background-color: transparent !important;
+                    }
+                }
+                input {
+                    width: 30%;
+                    border: 1px solid $primary-200;
+                    border-radius: 4px;
+                    text-align: center;
+                }
+            }
+        }
+        .date {
+            padding: 25px 0px 20px 0px;
+            input {
+                background-color: #f0f0f0;
+                height: 50px !important;
+            }
+        }
+        .chickbox_input {
+            label {
+                margin: 0px 0px !important;
+                font-family: $primary-light;
+                padding-left: 10px;
+            }
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            border-radius: 7px;
+            margin-top: 15px;
+            background-color: #509ee2 !important;
+            color: white !important;
+            &:hover {
+                border: 1px solid #509ee2!important;
+                background-color: transparent !important;
+                color: #509ee2!important;
+                ;
+            }
+        }
+    }
+    .blob {
+        width: 600px;
+        height: 400px;
+        @include background("../img/Chambre_Simple.jpg");
+        animation: animate 5s linear infinite;
+        position: relative;
+        left: 50px;
+    }
+    @keyframes animate {
+        0%,
+        100% {
+            border-radius: 64% 36% 27% 73% / 55% 58% 42% 45%;
+        }
+        25% {
+            border-radius: 73% 27% 26% 38% / 73% 36% 64% 27%;
+        }
+        50% {
+            border-radius: 28% 72% 44% 56% / 49% 40% 60% 51%;
+        }
+        75% {
+            border-radius: 40% 60% 70% 30% / 47% 62% 38% 53%;
+        }
+        // 100% {
+        //     border-radius: 64% 36% 27% 73% / 55% 58% 42% 45%;
+        // }
+    }
+    @media only screen and (max-width: 1024px) {
+        .blob {
+            width: 450px;
+            left: 20px;
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        display: block;
+        form {
+            width: 80%;
+            margin: 20px auto 54px auto;
+        }
+        .blob {
+            width: 450px;
+            margin: auto;
+            left: auto;
+        }
+    }
+    @media only screen and (max-width: 560px) {
+        form {
+            width: 100%;
+            select {
+                display: block;
+                width: 100% !important;
+            }
+            .children {
+                display: block;
+                .plus_moix_chlid {
+                    margin: auto;
+                    margin-bottom: 20px;
+                }
+            }
+            .date {
+                input {
+                    display: block;
+                    width: 100% !important;
+                }
+            }
+        }
+        .blob {
+            width: 350px;
+        }
+    }
+}
+
+.features {
+    margin-top: 50px;
+    color: $primary-200 !important;
+    .features_content {
+        padding: 30px 0px;
+    }
+    .btn {
+        background-color: #509ee2 !important;
+        color: white !important;
+        padding: 10px 30px;
+        &:hover {
+            background-color: white !important;
+            color: #509ee2!important;
+            border: 1px solid #509ee2 !important;
+        }
+    }
+    .card {
+        padding: 25px;
+        box-shadow: 0px 0px 7px 3px black;
+        svg {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    video {
+        width: 100% !important;
+    }
+    .conetnt {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.secstion_4 {
+    .section4__content {
+        h2 {
+            font-size: 45px !important;
+            text-align: end;
+        }
+        h3 {
+            text-align: end;
+            font-family: auto;
+            font-size: 35px;
+        }
+        p {
+            width: 60%;
+            line-height: 1.8;
+        }
+        .section_4__btn {
+            text-align: end;
+            padding: 30px 0px;
+            .btn {
+                background-color: #509ee2 !important;
+                color: white !important;
+                padding: 10px 40px;
+                &:hover {
+                    background-color: white !important;
+                    color: #509ee2!important;
+                    border: 1px solid #509ee2 !important;
+                }
+            }
+        }
+    }
+}
