@@ -84,83 +84,44 @@ choix_chambre();
 new_choix = 1;
 var number_chambre = document.querySelector("#number_chambre");
 console.log(number_chambre);
+let x = document.querySelector('.choix').innerHTML
 $("#add_chambre").on('click', function() {
-    $("#all_choix").append(` 
-            <div class="choix">
-            <label style=" margin:20px 0px; display: block;">Selcet Your Room ${new_choix +1}</label>
-            <div class="row">
-                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-112 col-12">
-                       <div class="choix_chambre">
-                           <span style="display:block">*</span>
-                              <select id="options" name="chambre_${new_choix}">
-                                  <option value="Select an option " disabled selected>Select an option</option>
-                                  <option value="chambre_Simple">Chambre simple</option>
-                                  <option value="chambre_Double">Chambre Double</option>
-                                  <option value="Appartement">Appartement</option>
-                                  <option value="bungalow">bungalow</option>
-                              </select>
-                       </div>
-                  </div>
-                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-112 col-12">
-                      <div class="second_choix_chambre">
-                          <span style="display:block">*</span>
-                          <select id="choix_option" name="type_chambre_${new_choix}">
-                              <option value="Select an option 1" disabled  selected>Type Chambre</option>
-                          </select>
-  
-                      </div>
-                  </div>
-            </div>
-  
-  
-  
-  
-            <div class="third_choix_chambre" style="display: none;">
-              <span style="display:block">*</span>
-              <select id="choix_chambre_double"  name="type_chambre_double_${new_choix}">
-                  <option value="Select an option" disabled  selected>Please select an option</option>
-              </select>
-  
-            </div>
-  
-  
-  
-                <div class="pension_choix"  style="border-bottom:1px solid black">
-                      <label style=" margin:20px 0px; display: block;">Selcet Your pension</label>
-                         <span style="display:block">*</span>
-                          <select class="options_pension" name="pension_${new_choix}">
-                              <option value="Select an option" disabled selected>Select an option</option>
-                              <option value="complete">Complete</option>
-                              <option value="Demi">demi</option>
-                              <option value="sans">sans</option>
-                          </select>
-                          <div class="pesion_choix" style="display:none;" >
-                          <span style="display:block">*</span>
-                                <select class="choices_demi_pension" id="choices_demi_pension" name="pension_demi_type_${new_choix}">
-                              <option value="Select an option" disabled  selected>Please select an option</option>
-                          </select>
-                      </div>
-              </div>
-      </div> 
-          
-          `)
 
-    choix_chambre();
-    new_choix++;
-    number_chambre.value = new_choix;
-    console.log(number_chambre.value)
-    document.querySelector(".validation").disabled = true;
+        i = 0
+        $("#all_choix").append(`<div class="choix">${x}</div>`)
+        let r = document.querySelectorAll('.choix');
+        r.forEach(element => {
+            let f = element.querySelector('#options');
+            f.setAttribute("name", `chambre_${i}`);
+            let a = element.querySelector('#choix_option');
+            a.setAttribute("name", `type_chambre_${i}`);
+            let b = element.querySelector('#choix_chambre_double');
+            b.setAttribute("name", `type_chambre_double_${i}`);
+            let y = element.querySelector('.options_pension');
+            y.setAttribute("name", `pension_${i}`);
+            let q = element.querySelector('.choices_demi_pension');
+            q.setAttribute("name", `pension_demi_type_${i}`);
+            i++;
+        })
+
+
+        choix_chambre();
+        new_choix++;
+        number_chambre.value = new_choix;
+        console.log(number_chambre.value)
+        document.querySelector(".validation").disabled = true;
 
 
 
 
 
-    //////////////// pension
-    pension();
+        //////////////// pension
+        pension();
 
 
 
-})
+    })
+    ///// remove last add
 
 $("#moins_chambre").on('click', function() {
     var all_choix = document.querySelectorAll('.choix').length
@@ -168,8 +129,6 @@ $("#moins_chambre").on('click', function() {
         $("#all_choix").children().last().remove();
         new_choix--;
         number_chambre.value = new_choix;
-        console.log(number_chambre.value)
-
     }
 })
 
